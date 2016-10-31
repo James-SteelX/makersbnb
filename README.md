@@ -1,9 +1,45 @@
 #User Stories
 ##Listing user stories
 ```
+As a user
+So that I can
+I would like to
 ```
 ##Booking user stories
 ```
+As a visitor
+So that I can use the makersbnb website
+I would like to sign up to the website
+```
+```
+As a visitor
+So that I can book a space
+I would like to view other users spaces
+```
+```
+As a visitor
+So that I can return to a previous users space
+I would like to be able to search by user
+```
+```
+As a visitor
+So that I can see available spaces
+I would like to have availability information displayed
+```
+```
+As a visitor
+So that I can make a booking
+I would like to make a request to stay in available slot
+```
+```
+As a visitor
+So that I know my booking was successful
+I would like to get a confirmation or denial message
+```
+```
+As a visitor
+So that I can
+I would like to
 ```
 
 
