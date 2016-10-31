@@ -1,13 +1,18 @@
 ENV['RACK_ENV'] = 'development'
 
 require 'sinatra/base'
-require_relative 'data_mapper_setup'
-
+require './app/models/user'
+# require_relative 'data_mapper_setup'
+require './app/data_mapper_setup'
 
 class MakersBnB < Sinatra::Base
 
   get '/' do
     'Hello World'
+  end
+
+  get '/home' do
+    "Hello home world!!!"
   end
 
   get '/users/new' do
