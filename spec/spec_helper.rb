@@ -8,6 +8,7 @@ require 'capybara'
 require 'capybara/rspec'
 require 'rspec'
 require 'database_cleaner'
+require_relative '../app/models/user'
 
 
 Capybara.app = MakersBnB
