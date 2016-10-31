@@ -1,10 +1,4 @@
 #User Stories
-##Listing user stories
-```
-As a user
-So that I can
-I would like to
-```
 ##Booking user stories
 ```
 As a visitor
