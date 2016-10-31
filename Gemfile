@@ -16,5 +16,5 @@ group :test do
   gem 'rspec'
   gem 'rspec-sinatra'
   gem 'byebug'
-  gem 'coveralls' , require: false   
+  gem 'coveralls' , require: false
 end
