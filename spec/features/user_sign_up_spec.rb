@@ -8,4 +8,10 @@ feature 'signing up to MakersBnB' do
     expect(page).to have_content "Hello, Terry"
     expect(User.first.email).to eq "terry@hotmail.com"
   end
+
+  scenario 'rejects non-identical password and password confirmation' do
+    # expect(page).to have_content "Password does not match confirmation"
+    expect(current_path).to eq "/users/new"
+    expect{failed_sign_up}.not_to change(User, :count)
+  end
 end
