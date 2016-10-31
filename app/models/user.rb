@@ -1,5 +1,5 @@
 require 'data_mapper'
-require_relative 'data_mapper_setup'
+require_relative '../data_mapper_setup'
 require 'dm-postgres-adapter'
 require 'dm-migrations'
 require 'bcrypt'
@@ -12,11 +12,11 @@ require 'bcrypt'
    attr_accessor :password_confirmation
    validates_confirmation_of :password
 
-   property :id, Serial
-   property :first_name, String, required: true
-   property :last_name, String, required: true
-   property :email, String, required: true, unique: true, format: :email_address
-   property :password_digest, Text, required: true
+   property :id,                Serial
+   property :first_name,        String, required: true
+   property :last_name,         String, required: true
+   property :email,             String, required: true, unique: true, format: :email_address
+   property :password_digest,   Text, required: true
 
    def password=(password)
     @password = password
@@ -31,5 +31,4 @@ require 'bcrypt'
       nil
     end
    end
-
  end
