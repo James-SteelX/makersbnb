@@ -55,10 +55,10 @@ class MakersBnB < Sinatra::Base
       user = User.authenticate(params[:email], params[:password])
       if user
         session[:user_id] = user.id
-        redirect '/home'
+        redirect :'/home'
       else
         flash.now[:errors] = ['The email or password is incorrect']
-        erb :'/home'
+        erb :'sessions/sign_in'
       end
     end
 
@@ -66,7 +66,7 @@ class MakersBnB < Sinatra::Base
       session[:user_id] = nil
       session[:nickname] = nil
       flash.keep[:notice] = "Goodbye!"
-      redirect '/home'
+      redirect :'/home'
     end
 
 
