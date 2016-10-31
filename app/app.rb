@@ -1,6 +1,7 @@
 ENV['RACK_ENV'] = 'development'
 
 require 'sinatra/base'
+require 'sinatra/flash'
 require './app/models/user'
 require './app/data_mapper_setup'
 
@@ -9,7 +10,8 @@ class MakersBnB < Sinatra::Base
 
   enable :sessions
   set :session_secret, 'super secret'
-  # register Sinatra::Flash
+  register Sinatra::Flash
+
   helpers do
     def current_user
       @current_user ||= User.get(session[:user_id])
@@ -40,7 +42,7 @@ class MakersBnB < Sinatra::Base
       session[:user_id] = @user.id
       redirect '/home'
     else
-      p "Password and confirmation do not match"
+      flash.now[:errors] = @user.errors.full_messages
       erb :'/users/new'
     end
   end
