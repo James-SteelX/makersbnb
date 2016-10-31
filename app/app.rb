@@ -11,6 +11,8 @@ class MakersBnB < Sinatra::Base
   enable :sessions
   set :session_secret, 'super secret'
   register Sinatra::Flash
+  use Rack::MethodOverride
+
   helpers do
     def current_user
       @current_user ||= User.get(session[:user_id])
@@ -18,7 +20,7 @@ class MakersBnB < Sinatra::Base
   end
 
   get '/' do
-    'Hello World'
+    redirect('/home')
   end
 
   get '/home' do
@@ -39,7 +41,7 @@ class MakersBnB < Sinatra::Base
 
     if @user.save
       session[:user_id] = @user.id
-      redirect '/home'
+      redirect('/home')
     else
       p "Password and confirmation do not match"
       erb :'/users/new'
@@ -49,7 +51,7 @@ class MakersBnB < Sinatra::Base
 
   get '/sessions/sign_in' do
       erb :'sessions/sign_in'
-    end
+  end
 
     post '/sessions' do
       user = User.authenticate(params[:email], params[:password])
@@ -60,6 +62,10 @@ class MakersBnB < Sinatra::Base
         flash.now[:errors] = ['The email or password is incorrect']
         erb :'sessions/sign_in'
       end
+    end
+
+    post '/sign_in_link' do
+      redirect('/sessions/sign_in')
     end
 
     delete '/sessions' do
