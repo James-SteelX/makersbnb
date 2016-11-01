@@ -7,6 +7,7 @@ require 'bcrypt'
 
    include DataMapper::Resource
 
+
    attr_reader :password
    attr_accessor :password_confirmation
 
@@ -15,6 +16,8 @@ require 'bcrypt'
    property :last_name,         String, required: true
    property :email,             String, required: true, unique: true, format: :email_address
    property :password_digest,   Text, required: true
+
+   has n, :listings
 
    validates_confirmation_of :password
 
