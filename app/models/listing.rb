@@ -13,5 +13,6 @@ require 'dm-migrations'
   property :price, Integer, required: true
 
   belongs_to :user
+  has n, :dates
 
  end
