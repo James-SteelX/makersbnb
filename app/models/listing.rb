@@ -7,10 +7,10 @@ require 'dm-migrations'
   include DataMapper::Resource
 
   property :id, Serial
-  property :street_address, String
-  property :city, String
-  property :description, Text
-  property :price, Integer
+  property :street_address, String, required: true
+  property :city, String, required: true
+  property :description, Text, required: true
+  property :price, Integer, required: true
 
   belongs_to :user
 
