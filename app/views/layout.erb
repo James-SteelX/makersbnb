@@ -11,7 +11,7 @@
         <input type="hidden" name="_method" value="delete">
         <input type="submit" value="Sign out">
       </form>
-      <a href="/listing/new">List a property</a>
+      <a href="/listings/new">List a property</a>
 
     <% else %>
       <% if !request.path_info.include?('/sessions') || request.path_info == '/sessions/delete' %>

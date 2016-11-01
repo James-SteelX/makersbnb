@@ -39,3 +39,20 @@ def sign_in_bad
   fill_in :password, with: 'oranges!'
   click_button('Sign in')
 end
+
+def add_listing
+  visit '/listings'
+  click_button 'Add listing'
+  fill_in :street_address, with: '24 Cherrytree Lane'
+  fill_in :city, with: 'Cardiff'
+  fill_in :description, with: 'Lovely two bed cottage: Sheep grazing in backyward'
+  fill_in :price, with: '£75'
+  click_button 'submit'
+end
+
+def search_listings
+  visit '/listings'
+  click_button 'Search listings'
+  fill_in :city, with: 'Cardiff'
+  click_button 'Search'
+end
