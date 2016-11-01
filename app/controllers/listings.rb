@@ -34,7 +34,7 @@ class MakersBnB < Sinatra::Base
   end
 
   post '/listings/add_date' do
-    date = Date.new(start_date: params[:start_date], end_date: params[:end_date], is_available: true, listing_id: 1)
+    date = Avdate.new(start_date: params[:start_date], end_date: params[:end_date], is_available: true, listing_id: 1)
     date.save
     redirect('/users/profile')
   end
