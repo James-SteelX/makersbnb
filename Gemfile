@@ -2,12 +2,11 @@ source 'https://rubygems.org'
 
 ruby '2.3.1'
 
-gem 'sinatra'
+gem 'sinatra', '~> 1.4'
 gem 'dm-postgres-adapter'
 gem 'datamapper'
 gem 'bcrypt'
 gem 'sinatra-partial'
-gem 'sinatra-flash'
 gem 'rake'
 gem 'sinatra-flash'
 

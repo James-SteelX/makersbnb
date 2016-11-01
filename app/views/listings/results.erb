@@ -4,7 +4,7 @@
   <input type="submit" value="Create New Bookmark">
 </form> -->
 <br />
-<ul id='links'>
+<ul id='listings'>
   <% @search_results.each do |result| %>
     <li>
       City:             <%= result.city %>
@@ -13,6 +13,10 @@
       &nbsp&nbsp&nbsp
       Price per night:  <%= result.price   %>
       &nbsp&nbsp&nbsp
+
+      <form action="/requests/new" method="get">
+      <input type="submit" value="Request stay">
+      </form>
 
     </li>
   <% end %>
