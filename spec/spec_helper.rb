@@ -9,6 +9,7 @@ require 'capybara/rspec'
 require 'rspec'
 require 'database_cleaner'
 require_relative '../app/models/user'
+require_relative 'helpers/session'
 
 
 Capybara.app = MakersBnB
@@ -31,6 +32,9 @@ Capybara.app = MakersBnB
 #
 # See http://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
 RSpec.configure do |config|
+
+  config.include SessionHelpers
+
   config.include Capybara::DSL
 
   # Everything in this block runs once before all the tests run

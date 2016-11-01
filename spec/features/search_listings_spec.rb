@@ -1,3 +1,5 @@
+require 'spec_helper'
+
 feature 'Search listings' do
   scenario 'search listings to view' do
     sign_up

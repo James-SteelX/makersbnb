@@ -1,6 +1,4 @@
 require 'spec_helper'
-require_relative 'web_helpers'
-require_relative 'listing_web_helpers'
 
 feature 'Listing a property on makersbnb' do
   scenario 'a signed in user can visit listing page' do
@@ -27,8 +25,5 @@ feature 'Listing a property on makersbnb' do
     expect(current_path).to eq('/sessions/sign_in')
     expect(page).to have_content('Please sign in to post a listing')
   end
-
-
-
 
 end

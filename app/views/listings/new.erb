@@ -2,17 +2,17 @@
 
 <form action="/listings" method="post">
   <label for="street_address">
-    Street Address: <input type="text" name="street_address">
+    Street Address: <input type="text" name="street_address" required>
   </label>
   <label for="city">
-    City: <input type="text" name="city">
+    City: <input type="text" name="city" required>
   </label>
   <label for="description">
-    Description: <textarea name="description" cols="40" rows="5" maxlength="150">
+    Description: <textarea name="description" cols="40" rows="5" maxlength="150" required>
     </textarea>
   </label>
   <label for="price">
-    Price per night: <input type="text" name="price">
+    Price per night: <input type="text" name="price" required>
   </label>
   <input type="submit" value="Create listing">
 </form>
