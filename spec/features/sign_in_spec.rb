@@ -6,7 +6,7 @@ feature 'signing in to MakersBnB' do
     sign_up
     sign_out
     sign_in
-    expect(page).to have_content "Hello, Terry"
+    expect(page).to have_content "Welcome, Terry"
   end
 
   scenario 'User tries to sign in with invalid account' do

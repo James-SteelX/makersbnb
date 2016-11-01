@@ -1,13 +1,1 @@
-<% if current_user %>
-  Hello, <%= current_user.first_name %>
-  <form action="/sessions" method="post">
-    <input type="hidden" name="_method" value="delete">
-    <input type="submit" value="Sign out">
-  </form>
-<% else %>
-  <% if !request.path_info.include?('/sessions') || request.path_info == '/sessions/delete' %>
-    <form action="/sign_in_link" method='post'>
-      <input type="submit" value="Sign in">
-    </form>
-  <% end %>
-<% end %>
+

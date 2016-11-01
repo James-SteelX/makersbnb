@@ -7,7 +7,20 @@
   <body>
     <% if current_user %>
       <h1> Welcome, <%= current_user.first_name %> </h1>
+      <form action="/sessions" method="post">
+        <input type="hidden" name="_method" value="delete">
+        <input type="submit" value="Sign out">
+      </form>
+      <a href="/listing/new">List a property</a>
+
+    <% else %>
+      <% if !request.path_info.include?('/sessions') || request.path_info == '/sessions/delete' %>
+        <form action="/sign_in_link" method='post'>
+         <input type="submit" value="Sign in">
+       </form>
     <% end %>
+  <% end %>
+
     <% if flash[:errors] && !flash[:errors].empty? %>
     Please refer to the following errors below:
     <ul id = 'errors'>
