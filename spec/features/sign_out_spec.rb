@@ -1,5 +1,4 @@
 require 'spec_helper'
-require_relative 'web_helpers'
 
 feature 'signing out of MakersBnB' do
   scenario 'User signs out' do

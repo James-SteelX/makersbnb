@@ -1,5 +1,4 @@
 require 'spec_helper'
-require_relative 'web_helpers'
 
 feature 'signing up to MakersBnB' do
   scenario 'allow users to create a MakersBnB account' do
@@ -10,7 +9,7 @@ feature 'signing up to MakersBnB' do
   end
 
   scenario 'signing up with a different password and password confirmation' do
-    expect{ failed_sign_up }.not_to change(User, :count)
+    expect{ sign_up(password_confirmation: 'obviously_wrong') }.not_to change(User, :count)
     expect(current_path).to eq "/sign_up"
     expect(page).to have_content "Password does not match the confirmation"
   end
