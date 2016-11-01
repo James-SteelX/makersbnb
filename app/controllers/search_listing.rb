@@ -5,6 +5,7 @@ class MakersBnB < Sinatra::Base
   end
 
   get '/listings/results' do
+    @city = params[:city]
     @search_results = Listing.all(city: params[:city])
 
     erb :'/listings/results'
