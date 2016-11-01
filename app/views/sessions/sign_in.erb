@@ -1,15 +1,5 @@
-<br>
-<% if flash[:errors] && !flash[:errors].empty? %>
-  Please refer to the following errors below:
-  <ul id='errors'>
-    <% flash[:errors].each do |error| %>
-      <li><%= error %></li>
-    <% end %>
-  </ul>
-<% end %>
-
 <form action="/sessions" method="post">
-  <label for="email">
+    <label for="email">
     Email: <input type="email" name="email" required>
   </label>
   <label for="password">
