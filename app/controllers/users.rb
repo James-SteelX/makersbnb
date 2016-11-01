@@ -19,4 +19,9 @@ class MakersBnB < Sinatra::Base
       erb :'/users/new'
     end
   end
+
+  get '/users/profile' do
+    @user_listings = Listing.all(user_id: current_user.id)
+    erb(:'/users/profile')
+  end
 end

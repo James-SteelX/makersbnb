@@ -1,0 +1,13 @@
+
+
+<ul id='user-listings'>
+  <% @user_listings.each do |result| %>
+    <li>
+      Address:             <%= result.street_address %>
+      City:             <%= result.city %>
+      Description:      <%= result.description   %>
+      Price per night:  <%= result.price   %>
+
+    </li>
+  <% end %>
+</ul>
