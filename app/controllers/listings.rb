@@ -1,9 +1,7 @@
 class MakersBnB < Sinatra::Base
 
-  get '/listings/listings' do
-
-    erb :'/listings'
-
+  get '/listings' do
+    erb :'listings/listings'
   end
 
 end

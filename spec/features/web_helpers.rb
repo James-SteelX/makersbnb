@@ -52,6 +52,7 @@ end
 
 def search_listings
   visit '/listings'
+  click_button 'Search listings'
   fill_in :city, with: 'Cardiff'
   click_button 'Search'
 end
