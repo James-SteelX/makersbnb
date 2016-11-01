@@ -5,7 +5,7 @@ class MakersBnB < Sinatra::Base
    end
 
 
-  get '/listing/new' do
+  get '/listings/new' do
    if current_user != nil
      erb :'listings/new'
    else
@@ -14,18 +14,18 @@ class MakersBnB < Sinatra::Base
    end
   end
 
-  post '/listing' do
+  post '/listings' do
     listing = Listing.new(street_address: params[:street_address], city: params[:city], description: params[:description], price: params[:price])
     user = current_user
     listing.user = user
     if listing.save
-       redirect to('/listing/confirmation')
+       redirect to('/listings/confirmation')
     else
       'sorry no good'
     end
   end
 
-  get '/listing/confirmation' do
+  get '/listings/confirmation' do
     erb :'listings/confirmation'
   end
 

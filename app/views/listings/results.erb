@@ -1,0 +1,23 @@
+<h1> Search Result for <%= @search_results.city %></h1>
+
+<!-- <form action="/links/new">
+  <input type="submit" value="Create New Bookmark">
+</form> -->
+<br />
+<ul id='links'>
+  <% @search_results.each do |result| %>
+    <li>
+      City:             <%= result.city %>
+      &nbsp&nbsp&nbsp
+      Description:      <%= result.description   %>
+      &nbsp&nbsp&nbsp
+      Price per night:  <%= result.price   %>
+      &nbsp&nbsp&nbsp
+
+      <!-- Tag:
+      <%link.tags.each do |tag| %>
+        <%= tag.name %>
+      <% end %>-->
+    </li>
+  <% end %>
+</ul>

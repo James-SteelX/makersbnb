@@ -1,5 +1,5 @@
 def create_listing
-  visit '/listing/new'
+  visit '/listings/new'
   fill_in :street_address, with: '101 Street Street'
   fill_in :city, with: 'London'
   fill_in :description, with: '4 bed house with garden'
