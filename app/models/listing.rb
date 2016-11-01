@@ -14,5 +14,4 @@ require 'dm-migrations'
 
   belongs_to :user
 
-
  end
