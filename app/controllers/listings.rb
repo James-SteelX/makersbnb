@@ -1,8 +1,13 @@
 class MakersBnB < Sinatra::Base
 
+   get '/listings' do
+    erb :'listings/listings'
+   end
+
+
   get '/listing/new' do
-    if current_user != nil
-     erb :'listing/new'
+   if current_user != nil
+     erb :'listings/new'
    else
      flash.keep[:errors] = ['Please sign in to post a listing']
      redirect('/sessions/sign_in')
@@ -21,7 +26,7 @@ class MakersBnB < Sinatra::Base
   end
 
   get '/listing/confirmation' do
-    erb :'listing/confirmation'
+    erb :'listings/confirmation'
   end
 
 end
