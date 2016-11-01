@@ -1,3 +1,5 @@
+[![Stories in Ready](https://badge.waffle.io/James-SteelX/makersbnb.png?label=ready&title=Ready)](http://waffle.io/James-SteelX/makersbnb)
+
 #User Stories
 ##Booking user stories
 ```
