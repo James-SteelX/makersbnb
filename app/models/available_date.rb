@@ -6,4 +6,6 @@ require 'dm-migrations'
 
   include DataMapper::Resource
 
+  
+
 end

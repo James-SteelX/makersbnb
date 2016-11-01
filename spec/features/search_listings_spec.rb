@@ -5,10 +5,10 @@ feature 'Search listings' do
     sign_up
     create_listing
     search_listings
-    expect(page).to have_content 'Search results for Cardiff'
+    expect(page).to have_content 'Search results for London'
     expect(current_path).to eq '/listings/results'
-    expect(page).to have_content 'Lovely two bed cottage: Sheep grazing in backyard'
-    expect(page).to have_content 'Price per night: £75'
+    expect(page).to have_content '4 bed house with garden'
+    expect(page).to have_content 'Price per night: 120'
   end
 
   # scenario 'requesting to stay at a location' do

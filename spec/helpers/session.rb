@@ -34,7 +34,7 @@ module SessionHelpers
   def search_listings
     visit '/listings'
     click_button 'Search listings'
-    fill_in :city, with: 'Cardiff'
+    fill_in :city, with: 'London'
     click_button 'Search'
   end
 end
