@@ -6,7 +6,6 @@ class MakersBnB < Sinatra::Base
     erb :'listings/listings'
    end
 
-
   get '/listings/new' do
    if current_user != nil
      erb :'listings/new'
@@ -41,5 +40,4 @@ class MakersBnB < Sinatra::Base
     date.save
     redirect('/users/profile')
   end
-
 end

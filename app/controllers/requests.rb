@@ -12,8 +12,8 @@ class MakersBnB < Sinatra::Base
 
   post '/requests/confirmation' do
     request = Request.new(start_date: params[:start_date],
-    end_date: params[:end_date],
-    listing_id: params[:listing_id])
+                end_date: params[:end_date],
+                listing_id: params[:listing_id])
     if request.save
       redirect to('/requests/confirmation')
     else
@@ -24,5 +24,4 @@ class MakersBnB < Sinatra::Base
   get '/requests/confirmation' do
     erb :'requests/confirmation'
   end
-
 end
