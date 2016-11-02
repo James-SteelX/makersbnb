@@ -1,9 +1,10 @@
 class MakersBnB < Sinatra::Base
 
    get '/listings' do
+    @all_listings = Listing.all
+    @available_dates = Avdate.all(is_available: true)
     erb :'listings/listings'
    end
-
 
   get '/listings/new' do
    if current_user != nil
@@ -19,17 +20,21 @@ class MakersBnB < Sinatra::Base
     user = current_user
     listing.user = user
     if listing.save
-       redirect to('/listings/confirmation')
+      @listing_id = params[listing.id]
+      p @listing_id
+      erb :'listings/confirmation'
     else
       'sorry no good'
     end
   end
 
-  get '/listings/confirmation' do
-    erb :'listings/confirmation'
-  end
+  # post '/listings/confirmation' do
+  #   @listing_id = params[:listing_id]
+  #   erb :'listings/confirmation'
+  # end
 
   post '/listings/add_date' do
+    p @listing_id
     @listing_id = params[:listing_id]
     erb :'listings/add_date'
   end
@@ -39,5 +44,4 @@ class MakersBnB < Sinatra::Base
     date.save
     redirect('/users/profile')
   end
-
 end

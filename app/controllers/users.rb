@@ -21,6 +21,7 @@ class MakersBnB < Sinatra::Base
   end
 
   get '/users/profile' do
+    @available_dates = Avdate.all(is_available: true)
     @user_listings = Listing.all(user_id: current_user.id)
     erb(:'/users/profile')
   end
