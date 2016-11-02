@@ -1,5 +1,5 @@
 class MakersBnB < Sinatra::Base
-  
+
   get '/users/new' do
     @user = User.new
     erb :'users/new'
@@ -11,7 +11,6 @@ class MakersBnB < Sinatra::Base
                 email: params[:email],
                 password: params[:password],
                 password_confirmation: params[:password_confirmation])
-
     if @user.save
       session[:user_id] = @user.id
       redirect('/home')
@@ -21,4 +20,8 @@ class MakersBnB < Sinatra::Base
     end
   end
 
+  get '/users/profile' do
+    @user_listings = Listing.all(user_id: current_user.id)
+    erb(:'/users/profile')
+  end
 end

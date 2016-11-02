@@ -1,3 +1,5 @@
+[![Stories in Ready](https://badge.waffle.io/James-SteelX/makersbnb.png?label=ready&title=Ready)](http://waffle.io/James-SteelX/makersbnb)
+
 #User Stories
 ##Booking user stories
 ```
@@ -46,7 +48,12 @@ I want to	create an account at MakersBNB
 As a host		
 So that I can	list my home
 I want to	create a listing for my home showing the description and price per night
-```		
+```
+```
+As a host		
+So that I can	manage my properties
+I want to	be able to view all my listings.
+```			
 ```
 As a host		
 So that I can	list my home

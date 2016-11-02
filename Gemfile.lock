@@ -144,7 +144,7 @@ DEPENDENCIES
   rake
   rspec
   rspec-sinatra
-  sinatra
+  sinatra (~> 1.4)
   sinatra-flash
   sinatra-partial
 
@@ -152,4 +152,4 @@ RUBY VERSION
    ruby 2.3.1p112
 
 BUNDLED WITH
-   1.13.5
+   1.13.6

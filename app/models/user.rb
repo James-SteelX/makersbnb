@@ -7,7 +7,6 @@ require 'bcrypt'
 
    include DataMapper::Resource
 
-
    attr_reader :password
    attr_accessor :password_confirmation
 

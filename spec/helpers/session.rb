@@ -22,19 +22,26 @@ module SessionHelpers
     click_button('Sign in')
   end
 
-  def create_listing
+  def create_listing(street_address: '101 Street Street', city: 'London', description: '4 bed house with garden', price: 120)
     visit '/listings/new'
-    fill_in :street_address, with: '101 Street Street'
-    fill_in :city, with: 'London'
-    fill_in :description, with: '4 bed house with garden'
-    fill_in :price, with: '120'
+    fill_in :street_address, with: street_address
+    fill_in :city, with: city
+    fill_in :description, with: description
+    fill_in :price, with: price
     click_button 'Create listing'
   end
 
   def search_listings
     visit '/listings'
     click_button 'Search listings'
-    fill_in :city, with: 'Cardiff'
+    fill_in :city, with: 'London'
     click_button 'Search'
+  end
+
+  def enter_dates
+    click_button 'Request stay'
+    fill_in :start_date, with: '14/02/2017'
+    fill_in :end_date, with: '16/02/2017'
+    click_button 'Make request'
   end
 end

@@ -29,4 +29,15 @@ class MakersBnB < Sinatra::Base
     erb :'listings/confirmation'
   end
 
+  post '/listings/add_date' do
+    @listing_id = params[:listing_id]
+    erb :'listings/add_date'
+  end
+
+  post '/listings/set_dates' do
+    date = Avdate.new(start_date: params[:start_date], end_date: params[:end_date], is_available: true, listing_id: params[:listing_id])
+    date.save
+    redirect('/users/profile')
+  end
+
 end
