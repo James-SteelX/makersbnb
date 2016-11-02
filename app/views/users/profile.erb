@@ -1,0 +1,31 @@
+
+
+<ul id='user-listings'>
+  <% @user_listings.each do |result| %>
+    <div>
+      <li>
+        Address:          <%= result.street_address %>
+        City:             <%= result.city %>
+        Description:      <%= result.description   %>
+        Price per night:  <%= result.price   %>
+        <%= @listing_id = result.id   %>
+    <div>
+    <div>
+      Available dates:
+        <ol>
+          <% @dates = @available_dates.all(listing_id: @listing_id) %>
+          <% @dates.each do |show_date| %>
+          <li>
+            Start date: <%= show_date.start_date %>
+            End date: <%= show_date.end_date %>
+          </li>
+          <% end %>
+        </ol>
+      </div>
+    </li>
+      <form action="/listings/add_date" method="post">
+      <input type = 'hidden' name = "listing_id" value = "<%= @listing_id %>" >
+      <input type="submit" value="Add dates">
+    </li>
+  <% end %>
+</ul>
