@@ -21,7 +21,6 @@ class MakersBnB < Sinatra::Base
     listing.user = user
     if listing.save
       @listing_id = params[listing.id]
-      p @listing_id
       erb :'listings/confirmation'
     else
       'sorry no good'
@@ -34,7 +33,6 @@ class MakersBnB < Sinatra::Base
   # end
 
   post '/listings/add_date' do
-    p @listing_id
     @listing_id = params[:listing_id]
     erb :'listings/add_date'
   end

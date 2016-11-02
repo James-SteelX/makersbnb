@@ -14,6 +14,7 @@ class MakersBnB < Sinatra::Base
                 password_confirmation: params[:password_confirmation])
     if @user.save
       session[:user_id] = @user.id
+      flash.keep[:notice] = "Welcome, #{@user.first_name}"
       redirect('/home')
     else
       flash.now[:errors] = @user.errors.full_messages
