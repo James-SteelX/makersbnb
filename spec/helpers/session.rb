@@ -38,14 +38,7 @@ module SessionHelpers
     fill_in :city, with: city
     click_button 'Search'
   end
-
-  def search_listings_by_ID
-    visit '/listings'
-    click_button 'Search listings'
-    fill_in :listing_id, with: 1
-    click_button 'Search'
-  end
-
+  
   def enter_dates
     click_button 'Request stay'
     fill_in :start_date, with: '14/02/2017'

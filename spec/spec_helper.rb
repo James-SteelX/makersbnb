@@ -18,7 +18,7 @@ SimpleCov.formatters = [
   SimpleCov::Formatter::HTMLFormatter,
   Coveralls::SimpleCov::Formatter
 ]
-Coveralls.wear! 
+Coveralls.wear!
 
 
 Capybara.app = MakersBnB
@@ -49,11 +49,12 @@ RSpec.configure do |config|
   # Everything in this block runs once before all the tests run
   config.before(:suite) do
     DatabaseCleaner.strategy = :transaction
-    DatabaseCleaner.clean_with(:truncation)
+    DatabaseCleaner.clean_with(:truncation, pre_count: true, reset_ids: true)
   end
 
   # Everything in this block runs once before each individual test
   config.before(:each) do
+    DatabaseCleaner.clean_with(:truncation, pre_count: true, reset_ids: true)
     DatabaseCleaner.start
   end
 
