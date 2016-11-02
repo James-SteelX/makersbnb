@@ -9,6 +9,7 @@ class MakersBnB < Sinatra::Base
     @user = User.create(first_name: params[:first_name],
                 last_name: params[:last_name],
                 email: params[:email],
+                mobile_number: params[:mobile_number],
                 password: params[:password],
                 password_confirmation: params[:password_confirmation])
     if @user.save
