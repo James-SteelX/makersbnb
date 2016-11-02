@@ -5,9 +5,9 @@ feature 'Search listings' do
     sign_up
     create_listing
     search_listings
-    expect(page).to have_content 'Search results for London'
-    expect(current_path).to eq '/listings/results'
+    expect(page).to have_content 'London'
     expect(page).to have_content '4 bed house with garden'
     expect(page).to have_content 'Price per night: 120'
+    expect(current_path).to eq '/listings/results'
   end
 end
