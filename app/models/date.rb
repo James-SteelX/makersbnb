@@ -7,8 +7,8 @@ require 'dm-migrations'
   include DataMapper::Resource
 
   property :id, Serial
-  property :start_date,  DateTime
-  property :end_date,  DateTime
+  property :start_date,  Date
+  property :end_date,  Date
   property :is_available,  Boolean
 
   belongs_to :listing

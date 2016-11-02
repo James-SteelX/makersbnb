@@ -2,6 +2,7 @@ class MakersBnB < Sinatra::Base
 
    get '/listings' do
     @all_listings = Listing.all
+    @available_dates = Avdate.all(is_available: true)
     erb :'listings/listings'
    end
 
