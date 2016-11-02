@@ -3,7 +3,7 @@ require 'spec_helper'
 feature 'Listing a property on makersbnb' do
   scenario 'a signed in user can visit listing page' do
     sign_up
-    click_link('List a property')
+    click_button('List a property')
     expect(current_path).to eq('/listings/new')
     expect(page).to have_content('Create a property listing')
   end

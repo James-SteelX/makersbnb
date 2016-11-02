@@ -1,13 +1,14 @@
 module SessionHelpers
-  def sign_up(first_name: 'Terry', last_name: 'McGuire', email: 'terry@hotmail.com', password: 'oranges!', password_confirmation: 'oranges!')
+  def sign_up(first_name: 'Terry', last_name: 'McGuire', phone_number: '07123456789', email: 'terry@hotmail.com', password: 'oranges!', password_confirmation: 'oranges!')
     visit '/users/new'
     expect(page.status_code).to eq(200)
     fill_in :first_name, with: first_name
     fill_in :last_name, with: last_name
+    fill_in :mobile_number, with: phone_number
     fill_in :email,    with: email
     fill_in :password, with: password
     fill_in :password_confirmation, with: password_confirmation
-    click_button 'Sign up'
+    click_button 'Sign Up'
   end
 
   def sign_out

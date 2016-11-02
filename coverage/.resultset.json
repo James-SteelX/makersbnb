@@ -1,7 +1,7 @@
 {
   "RSpec": {
     "coverage": {
-      "/home/glynester/Desktop/Projects/makersbnb/spec/features/create_listing_spec.rb": [
+      "/Users/jamessteel/Desktop/Makers-Projects/makersbnb/spec/features/create_listing_spec.rb": [
         1,
         null,
         1,
@@ -32,7 +32,7 @@
         null,
         null
       ],
-      "/home/glynester/Desktop/Projects/makersbnb/spec/features/manage_listing_spec.rb": [
+      "/Users/jamessteel/Desktop/Makers-Projects/makersbnb/spec/features/manage_listing_spec.rb": [
         1,
         null,
         1,
@@ -46,7 +46,7 @@
         null,
         null
       ],
-      "/home/glynester/Desktop/Projects/makersbnb/spec/features/requesting_a_stay_spec.rb": [
+      "/Users/jamessteel/Desktop/Makers-Projects/makersbnb/spec/features/requesting_a_stay_spec.rb": [
         1,
         null,
         1,
@@ -97,7 +97,7 @@
         null,
         null
       ],
-      "/home/glynester/Desktop/Projects/makersbnb/spec/features/search_listings_spec.rb": [
+      "/Users/jamessteel/Desktop/Makers-Projects/makersbnb/spec/features/search_listings_spec.rb": [
         1,
         null,
         1,
@@ -132,7 +132,7 @@
         null,
         null
       ],
-      "/home/glynester/Desktop/Projects/makersbnb/spec/features/show_available_dates_spec.rb": [
+      "/Users/jamessteel/Desktop/Makers-Projects/makersbnb/spec/features/show_available_dates_spec.rb": [
         1,
         null,
         1,
@@ -150,7 +150,7 @@
         null,
         null
       ],
-      "/home/glynester/Desktop/Projects/makersbnb/spec/features/show_bookingrequests_spec.rb": [
+      "/Users/jamessteel/Desktop/Makers-Projects/makersbnb/spec/features/show_bookingrequests_spec.rb": [
         1,
         null,
         1,
@@ -158,33 +158,6 @@
         1,
         1,
         1,
-        1,
-        1,
-        1,
-        null,
-        1,
-        1,
-        null,
-        null
-      ],
-      "/home/glynester/Desktop/Projects/makersbnb/spec/features/sign_in_spec.rb": [
-        1,
-        null,
-        1,
-        1,
-        1,
-        1,
-        1,
-        1,
-        null,
-        null,
-        1,
-        1,
-        1,
-        1,
-        1,
-        null,
-        null,
         1,
         1,
         1,
@@ -193,7 +166,33 @@
         null,
         null
       ],
-      "/home/glynester/Desktop/Projects/makersbnb/spec/features/sign_out_spec.rb": [
+      "/Users/jamessteel/Desktop/Makers-Projects/makersbnb/spec/features/sign_in_spec.rb": [
+        1,
+        null,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        null,
+        null,
+        1,
+        1,
+        1,
+        1,
+        1,
+        null,
+        null,
+        1,
+        1,
+        1,
+        1,
+        1,
+        null,
+        null
+      ],
+      "/Users/jamessteel/Desktop/Makers-Projects/makersbnb/spec/features/sign_out_spec.rb": [
         1,
         null,
         1,
@@ -209,7 +208,7 @@
         null,
         null
       ],
-      "/home/glynester/Desktop/Projects/makersbnb/spec/features/user_sign_up_spec.rb": [
+      "/Users/jamessteel/Desktop/Makers-Projects/makersbnb/spec/features/user_sign_up_spec.rb": [
         1,
         null,
         1,
@@ -235,7 +234,7 @@
         null,
         null
       ],
-      "/home/glynester/Desktop/Projects/makersbnb/spec/models/user_spec.rb": [
+      "/Users/jamessteel/Desktop/Makers-Projects/makersbnb/spec/models/user_spec.rb": [
         1,
         null,
         1,
@@ -258,6 +257,6 @@
         null
       ]
     },
-    "timestamp": 1478105652
+    "timestamp": 1478106334
   }
 }
