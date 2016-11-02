@@ -22,6 +22,13 @@ module SessionHelpers
     click_button('Sign in')
   end
 
+  def create_2_user_accounts
+    sign_up
+    create_listing
+    sign_out
+    sign_up(first_name: 'George', last_name: 'Brown', email: 'jb@hotmail.com', password: 'password!', password_confirmation: 'password!')
+  end
+
   def create_listing(street_address: '101 Street Street', city: 'London', description: '4 bed house with garden', price: 120)
     visit '/listings/new'
     fill_in :street_address, with: street_address

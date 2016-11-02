@@ -24,8 +24,15 @@
       </div>
     </li>
       <form action="/listings/add_date" method="post">
-      <input type = 'hidden' name = "listing_id" value = "<%= @listing_id %>" >
-      <input type="submit" value="Add dates">
+        <input type = 'hidden' name = "listing_id" value = "<%= @listing_id %>" >
+        <input type="submit" value="Add dates">
+      </form>
     </li>
+  </li>
+    <form action="/users/received_requests" method="post">
+      <input type = 'hidden' name = "listing_id" value = "<%= @listing_id %>" >
+      <input type="submit" value="View booking requests">
+    </form>
+  </li>
   <% end %>
 </ul>
