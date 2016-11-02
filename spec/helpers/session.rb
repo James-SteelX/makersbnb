@@ -31,10 +31,18 @@ module SessionHelpers
     click_button 'Create listing'
   end
 
-  def search_listings
+  def search_listings(city: "London", listing_id: '1' )
     visit '/listings'
     click_button 'Search listings'
-    fill_in :city, with: 'London'
+    fill_in :listing_id, with: listing_id
+    fill_in :city, with: city
+    click_button 'Search'
+  end
+
+  def search_listings_by_ID
+    visit '/listings'
+    click_button 'Search listings'
+    fill_in :listing_id, with: 1
     click_button 'Search'
   end
 
