@@ -1,6 +1,7 @@
 class MakersBnB < Sinatra::Base
 
    get '/listings' do
+    @all_listings = Listing.all
     erb :'listings/listings'
    end
 
