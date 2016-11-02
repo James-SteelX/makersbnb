@@ -14,5 +14,7 @@ require 'dm-migrations'
 
   belongs_to :user
   has n, :avdates
+  has n, :requests
+
 
  end
