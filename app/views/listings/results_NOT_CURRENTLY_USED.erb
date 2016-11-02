@@ -1,0 +1,39 @@
+<!-- THIS FILE IS A DUPLICATION OF listings.erb. NOT CURRENTLY USED. -->
+
+<h1> Search results for <%= @city %></h1>
+
+<br />
+<ul id='listings'>
+  <% @search_results.each do |result| %>
+    <li>
+      <div>
+        City:             <%= result.city %>
+        &nbsp&nbsp&nbsp
+        Description:      <%= result.description   %>
+        &nbsp&nbsp&nbsp
+        Price per night:  <%= result.price   %>
+        &nbsp&nbsp&nbsp
+        <%= @listing_id = result.id   %>
+      </div>
+      <div>
+        Available dates:
+        <ol>
+          <% @dates = @available_dates.all(listing_id: @listing_id) %>
+          <% @dates.each do |show_date| %>
+            <li>
+              Start date: <%= show_date.start_date %>
+              End date: <%= show_date.end_date %>
+            </li>
+          <% end %>
+        </ol>
+    </div>
+
+
+      <form action="/requests/new" method="post">
+      <input type = 'hidden' name = "listing_id" value = "<%= @listing_id %>" >
+      <input type="submit" value="Request stay">
+      </form>
+
+    </li>
+  <% end %>
+</ul>

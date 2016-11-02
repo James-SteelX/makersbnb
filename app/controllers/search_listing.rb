@@ -6,8 +6,9 @@ class MakersBnB < Sinatra::Base
 
   get '/listings/results' do
     @city = params[:city]
-    @search_results = Listing.all(city: params[:city])
-    erb :'/listings/results'
+    @all_listings = Listing.all(city: params[:city])
+    @available_dates = Avdate.all(is_available: true)
+    erb :'/listings/listings'
   end
 
 end
