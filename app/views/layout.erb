@@ -3,50 +3,45 @@
     <head>
         <meta charset="utf-8" />
         <title>makersBnB</title>
+        <link href="/styles/style.css" rel="stylesheet">
     </head>
     <body>
-      <nav>
-        <ul>
-          <li>
-            <% if current_user %>
-              <form action="/listings/new" method="get">
-                <input type="submit" value="List a property">
-              </form>
-            <% end %>
-          </li>
-          <li>
-            <% if current_user %>
-              <form action="/users/profile" method="get">
-                <input type="submit" value="Visit user profile">
-              </form>
-            <% end %>
-          </li>
-          <li>
-            <% if current_user %>
-              <form action="/sessions" method="post">
-                <input type="hidden" name="_method" value="delete">
-                <input type="submit" value="Sign out">
-              </form>
-            <% end %>
-          </li>
-          <li>
-            <% if !current_user %>
-              <% if !request.path_info.include?('/sessions') || request.path_info == '/sessions/delete' %>
-                <form action="/sign_in_link" method='post'>
-                 <input type="submit" value="Sign in">
-               </form>
-             <% end %>
-            <% end %>
-          </li>
-          <li>
-            <% if !current_user %>
-              <form action="/users/new" method="get">
-                <input type="submit" value="Sign up">
-              </form>
-            <% end %>
-          </li>
-      </ul>
-    </nav>
+      <header id="header">
+        <nav>
+          <ul>
+            <li>
+              <% if current_user %>
+                <a href="/listings/new">List a property</a>
+              <% end %>
+            </li>
+            <li>
+              <% if current_user %>
+                <a href="/users/profile">User profile</a>
+              <% end %>
+            </li>
+            <li>
+              <% if current_user %>
+                <form action="/sessions" method="post">
+                  <input type="hidden" name="_method" value="delete">
+                  <input type="submit" value="Sign out">
+                </form>
+              <% end %>
+            </li>
+            <li>
+              <% if !current_user %>
+                <% if !request.path_info.include?('/sessions') || request.path_info == '/sessions/delete' %>
+                  <a href="/sessions/sign_in">Sign In</a>
+               <% end %>
+              <% end %>
+            </li>
+            <li>
+              <% if !current_user %>
+                <a href="/users/new">Sign Up</a>
+              <% end %>
+            </li>
+        </ul>
+      </nav>
+    <header>
     <% if flash[:notice] %>
       <h3><%= flash[:notice] %></h3>
     <% end %>
@@ -60,6 +55,6 @@
     <% end %>
     <%= yield %>
 
-    
+
     </body>
     </html>

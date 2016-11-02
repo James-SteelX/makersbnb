@@ -16,9 +16,6 @@ class MakersBnB < Sinatra::Base
     end
   end
 
-  post '/sign_in_link' do
-    redirect('/sessions/sign_in')
-  end
 
   delete '/sessions' do
     session[:user_id] = nil

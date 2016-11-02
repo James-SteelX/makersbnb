@@ -17,7 +17,7 @@ module SessionHelpers
 
   def sign_in(email: 'terry@hotmail.com', password: 'oranges!')
     visit('/')
-    click_button('Sign in')
+    click_link('Sign In')
     fill_in :email,    with: email
     fill_in :password, with: password
     click_button('Sign in')
