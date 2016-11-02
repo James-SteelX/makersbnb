@@ -1,14 +1,38 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8" />
-        <title>makersBnB</title>
-        <link href="/styles/style.css" rel="stylesheet">
-    </head>
-    <body>
-      <header id="header">
-        <nav>
-          <ul>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="A layout example that shows off a responsive product landing page.">
+    <title>makersBnB</title>
+    <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.6.0/pure-min.css">
+
+<!--[if lte IE 8]>
+
+    <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.6.0/grids-responsive-old-ie-min.css">
+
+<![endif]-->
+<!--[if gt IE 8]><!-->
+
+    <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.6.0/grids-responsive-min.css">
+
+<!--<![endif]-->
+
+    <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
+
+    <!--[if lte IE 8]>
+        <link rel="stylesheet" href="/styles/marketing-old-ie.css">
+    <![endif]-->
+    <!--[if gt IE 8]><!-->
+        <link rel="stylesheet" href="/styles/marketing.css">
+    <!--<![endif]-->
+  </head>
+<body>
+
+  <div class="header">
+      <div class="home-menu pure-menu pure-menu-horizontal pure-menu-fixed">
+          <a class="pure-menu-heading" href="/"><img src="/images/makersbnblogo.png" title="makersBnB"/></a>
+          <ul class="pure-menu-list">
             <li>
               <% if current_user %>
                 <a href="/listings/new">List a property</a>
@@ -17,14 +41,6 @@
             <li>
               <% if current_user %>
                 <a href="/users/profile">User profile</a>
-              <% end %>
-            </li>
-            <li>
-              <% if current_user %>
-                <form action="/sessions" method="post">
-                  <input type="hidden" name="_method" value="delete">
-                  <input type="submit" value="Sign out">
-                </form>
               <% end %>
             </li>
             <li>
@@ -39,22 +55,25 @@
                 <a href="/users/new">Sign Up</a>
               <% end %>
             </li>
-        </ul>
-      </nav>
-    <header>
-    <% if flash[:notice] %>
-      <h3><%= flash[:notice] %></h3>
-    <% end %>
-    <% if flash[:errors] && !flash[:errors].empty? %>
-      Please refer to the following errors below:
-      <ul id = 'errors'>
-        <% flash[:errors].each do |error| %>
-          <li> <%= error %> </li>
-        <% end %>
-      </ul>
-    <% end %>
-    <%= yield %>
+            <li>
+              <% if current_user %>
+                <form action="/sessions" method="post">
+                  <input type="hidden" name="_method" value="delete">
+                  <input type="submit" value="Sign out">
+                </form>
+              <% end %>
+            </li>
+          </ul>
+      </div>
+  </div>
+
+  <div class="content-wrapper">
+
+  <%= yield %>
 
 
-    </body>
-    </html>
+
+
+  </div>
+</body>
+</html>
