@@ -9,6 +9,7 @@ gem 'bcrypt'
 gem 'sinatra-partial'
 gem 'rake'
 gem 'sinatra-flash'
+gem 'twilio-ruby'
 
 group :test do
   gem 'database_cleaner'
