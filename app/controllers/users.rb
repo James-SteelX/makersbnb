@@ -24,4 +24,15 @@ class MakersBnB < Sinatra::Base
     @user_listings = Listing.all(user_id: current_user.id)
     erb(:'/users/profile')
   end
+
+  get '/users/profile/requests' do
+    @user_requests = Request.all(user_id: current_user.id)
+    if @user_requests.empty?
+      flash.now[:errors] = ['You currently have no trips planned']
+      erb(:'/users/requests')
+    else
+      erb(:'/users/requests')
+    end
+  end
+
 end

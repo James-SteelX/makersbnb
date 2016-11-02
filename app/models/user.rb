@@ -17,6 +17,7 @@ require 'bcrypt'
    property :password_digest,   Text, required: true
 
    has n, :listings
+  #  has n, :requests
 
    validates_confirmation_of :password
 
