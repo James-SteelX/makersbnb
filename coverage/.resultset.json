@@ -46,6 +46,39 @@
         null,
         null
       ],
+      "/Users/jamessteel/Desktop/Makers-Projects/makersbnb/spec/features/requesting_a_stay_spec.rb": [
+        1,
+        null,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        null,
+        null,
+        1,
+        1,
+        1,
+        1,
+        2,
+        1,
+        1,
+        null,
+        null,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        null,
+        null
+      ],
       "/Users/jamessteel/Desktop/Makers-Projects/makersbnb/spec/features/search_listings_spec.rb": [
         1,
         null,
@@ -58,14 +91,6 @@
         1,
         1,
         1,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
-        null,
         null,
         null
       ],
@@ -177,6 +202,6 @@
         null
       ]
     },
-    "timestamp": 1478020492
+    "timestamp": 1478076943
   }
 }

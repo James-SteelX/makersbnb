@@ -7,7 +7,11 @@
       City:             <%= result.city %>
       Description:      <%= result.description   %>
       Price per night:  <%= result.price   %>
-      <a href='/listings/add_date'>Add Date</a>
+      <%= @listing_id = result.id   %>
+
+      <form action="/listings/add_date" method="post">
+      <input type = 'hidden' name = "listing_id" value = "<%= @listing_id %>" >
+      <input type="submit" value="Add dates">
     </li>
   <% end %>
 </ul>

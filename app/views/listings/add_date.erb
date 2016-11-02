@@ -1,4 +1,4 @@
-<form action="/listings/add_date" method="post">
+<form action="/listings/set_dates" method="post">
 
   <label for="start_date">
     Start date: <input type="date" name="start_date" required>
@@ -7,6 +7,8 @@
   <label for="end_date">
     End date: <input type="date" name="end_date" required>
   </label>
+
+  <input type = 'hidden' name = "listing_id" value = "<%= @listing_id %>" >
 
  <input type="submit" value="Ok">
 </form>
