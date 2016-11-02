@@ -1,17 +1,19 @@
 class MakersBnB < Sinatra::Base
 
   post '/requests/new' do
-    p @listing_id = params[:listing_id]
-    erb :'requests/new'
+    @listing_id = params[:listing_id]
+    if current_user != nil
+      erb :'requests/new'
+    else
+      flash.keep[:errors] = ['Please sign in to request a stay']
+      redirect('/sessions/sign_in')
+    end
   end
 
   post '/requests/confirmation' do
     request = Request.new(start_date: params[:start_date],
-    end_date: params[:end_date])
-
-    #  listing = Listing.first(id: params[:listing_id])
-    listing = Listing.first(id: 3)
-    request.listing = listing
+    end_date: params[:end_date],
+    listing_id: params[:listing_id])
     if request.save
       redirect to('/requests/confirmation')
     else
