@@ -38,11 +38,12 @@ module SessionHelpers
     fill_in :city, with: city
     click_button 'Search'
   end
-  
+
   def enter_dates
     click_button 'Request stay'
     fill_in :start_date, with: '14/02/2017'
     fill_in :end_date, with: '16/02/2017'
     click_button 'Make request'
   end
+
 end
