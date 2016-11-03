@@ -10,7 +10,8 @@ class Request
   property :start_date,  Date, required: true
   property :end_date,    Date, required: true
   property :status,      String, default: :for_review
-  property :user_id, Integer
+  property :user_id,     Integer, required: true
+  property :avdate_id,   Integer        # , required: true         
 
   belongs_to :listing
   # belongs_to :user

@@ -25,4 +25,20 @@ class MakersBnB < Sinatra::Base
   get '/requests/confirmation' do
     erb :'requests/confirmation'
   end
+
+  post '/requests/request_booking' do
+    request = Request.new(start_date: params[:start_date],
+                end_date: params[:end_date],
+                listing_id: params[:listing_id],
+                avdate_id:  params[:avdate_id],
+                user_id: current_user.id)
+    if request.save
+      redirect to('/requests/confirmation')
+    else
+      'Sorry your message was not sent'
+    end
+    flash.keep[:notice] = "Success - your booking has been sent to the owner"
+    erb :'requests/confirmation'
+  end
+
 end
