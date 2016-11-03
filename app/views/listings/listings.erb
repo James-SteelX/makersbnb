@@ -4,18 +4,18 @@
     <ul id='listings'>
       <% @all_listings.each do |result| %>
           <div class="pure-u-2-5" id="pretty-box">
-            <li><small>Listing id:  <%= listing_id = result.id %></small></li>
-            <li>City: <%= result.city %></li>
-            <li>Description: <%= result.description   %></li>
-            <li>Price per night: <%= result.price   %></li>
+            <li class="listing-list-items"><small>Listing id:  <%= listing_id = result.id %></small></li>
+            <li class="listing-list-items">City: <%= result.city %></li>
+            <li class="listing-list-items">Description: <%= result.description   %></li>
+            <li class="listing-list-items">Price per night: <%= result.price   %></li>
           <% @dates = @available_dates.all(listing_id: listing_id) %>
           <% if @dates.empty? %>
-            <strong>There are curently no available dates</strong>
+            <li class="listing-list-items"><strong>There are curently no available dates</strong></li>
           <% else %>
-            Available dates:
+            <li class="listing-list-items">Available dates:</li>
             <ol>
               <% @dates.each do |show_date| %>
-                <li><%= show_date.start_date %> to <%= show_date.end_date %> </li>
+                <li class="listing-list-items"><%= show_date.start_date %> to <%= show_date.end_date %> </li>
                 <form action="/requests/request_booking" method="post">
                   <input type = 'hidden' name = "avdate_id" value = "<%= show_date.id %>" >
                   <input type = 'hidden' name = "start_date" value = "<%= show_date.start_date %>" >
