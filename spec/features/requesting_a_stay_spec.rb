@@ -30,20 +30,20 @@ feature 'Search listings' do
   end
 
   scenario 'displays the status of a request' do
-    sign_up
-    create_listing
+    create_2_user_accounts
     search_listings
     enter_dates
-    visit('/users/profile/requests')
+    visit('/users/profile')
     expect(page).to have_content 'Location: London'
     expect(page).to have_content 'Start date: 2017-02-14'
     expect(page).to have_content 'End date: 2017-02-16'
+    expect(page).to have_content 'Total cost: £240'
     expect(page).to have_content 'Status: For review'
   end
 
   scenario 'Tells user if they have no requests currently' do
     sign_up
-    visit('/users/profile/requests')
+    visit('/users/profile')
     expect(page).to have_content('You currently have no trips planned')
   end
 end
