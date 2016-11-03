@@ -34,6 +34,14 @@
           <li>
             Start date: <%= show_date.start_date %>
             End date: <%= show_date.end_date %>
+            <form action="/requests/request_booking" method="post">
+              <input type = 'hidden' name = "avdate_id" value = "<%= show_date.id %>" >
+              <input type = 'hidden' name = "start_date" value = "<%= show_date.start_date %>" >
+              <input type = 'hidden' name = "end_date" value = "<%= show_date.end_date %>" >
+              <input type = 'hidden' name = "listing_id" value = "<%= listing_id %>" >
+              <input type="submit" value="Make Booking Request">
+            </form>
+
           </li>
         <% end %>
     </ol>

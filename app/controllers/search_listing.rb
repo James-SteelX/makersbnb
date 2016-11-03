@@ -7,7 +7,7 @@ class MakersBnB < Sinatra::Base
   get '/listings/results' do
     if params[:listing_id].empty?
       @results = params[:city]
-            @available_dates = Avdate.all(is_available: true)
+      @available_dates = Avdate.all(is_available: true)
       @all_listings = Listing.all(city: params[:city])
 
     elsif params[:city].empty?

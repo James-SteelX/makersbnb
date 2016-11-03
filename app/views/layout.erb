@@ -7,12 +7,12 @@
     <title>makersBnB</title>
     <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.6.0/pure-min.css">
 
-<!--[if lte IE 8]>
+<!-- [if lte IE 8]>
 
     <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.6.0/grids-responsive-old-ie-min.css">
 
 <![endif]-->
-<!--[if gt IE 8]><!-->
+<!--[if gt IE 8]><! -->
 
     <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.6.0/grids-responsive-min.css">
 
@@ -66,28 +66,22 @@
           </ul>
       </div>
   </div>
-
-  <% if flash[:notice] %>
-    <h3><%= flash[:notice] %></h3>
-  <% end %>
-  <% if flash[:errors] && !flash[:errors].empty? %>
-    Please refer to the following errors below:
-    <ul id = 'errors'>
-      <% flash[:errors].each do |error| %>
-      <li> <%= error %> </li>
+    <div class='flash'>
+    <% if flash[:notice] %>
+      <h3><%= flash[:notice] %></h3>
     <% end %>
-  </ul>
-  <% end %>
+    <% if flash[:errors] && !flash[:errors].empty? %>
+      Please refer to the following errors below:
+      <ul id = 'errors'>
+        <% flash[:errors].each do |error| %>
+        <li> <%= error %> </li>
+      <% end %>
+    </ul>
+    <% end %>
+    </div>
 
   <div class="content-wrapper">
-
-
-
-  <%= yield %>
-
-
-
-
+    <%= yield %>
   </div>
 </body>
 </html>

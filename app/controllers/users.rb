@@ -39,7 +39,7 @@ class MakersBnB < Sinatra::Base
   end
 
   post "/users/received_requests" do
-    @user_requests = Request.all(listing_id: params[:listing_id])
+    @user_requests = Request.all(listing_id: params[:listing_id], :status => :for_review)
     if @user_requests.empty?
       flash.now[:errors] = ['You have no booking requests']
       erb(:'/users/received_requests')

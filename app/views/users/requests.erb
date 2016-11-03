@@ -1,6 +1,12 @@
 
 <ul id='user-requests'>
+  <h1>Sent requests</h1>
   <% @user_requests.each do |request| %>
+    <% if request.status.to_s.capitalize == 'For_review' %>
+      <% output = 'For review' %>
+    <% else %>
+      <% output = request.status.to_s.capitalize %>
+    <% end %>
     <% listing = Listing.get(request.listing_id) %>
     <% user = User.get(request.user_id) %>
     <li>
@@ -12,7 +18,7 @@
       <br>
       End date:      <%= request.end_date   %>
       <br>
-      Status:        <%= request.status.to_s.capitalize.gsub!(/[^0-9A-Za-z]/, ' ')   %>
+      Status:        <%= output %>
       <br>
     </li>
   <% end %>

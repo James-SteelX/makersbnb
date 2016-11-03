@@ -13,6 +13,16 @@
       <br>
       Status:        <%= request.status.to_s.capitalize.gsub!(/[^0-9A-Za-z]/, ' ')   %>
       <br>
+      <form action="/requests/accept_request" method="post">
+        <input type = 'hidden' name = 'request_id' value = "<%= request.id %>" >
+        <input type = 'hidden' name = "date_id" value = "<%= request.avdate_id %>" >
+        <input type="submit" value="Accept">
+      </form>
+      <form action="/requests/reject_request" method="post">
+        <input type = 'hidden' name = "request_id" value = "<%= request.id %>" >
+        <input type="submit" value="Reject">
+      </form>
+
     </li><br>
   <% end %>
 </ul>
