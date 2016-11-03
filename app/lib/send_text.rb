@@ -11,5 +11,6 @@ class TextMessage
       to:   number, #phone number to send to
       body: "Hello #{name}, your reservation in #{city} for #{start_date} has been confirmed."
       )
+      message_text = "Hello #{name}, your reservation in #{city} for #{start_date} has been confirmed."
     end
 end
