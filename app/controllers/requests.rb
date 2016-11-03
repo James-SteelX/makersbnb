@@ -34,7 +34,7 @@ class MakersBnB < Sinatra::Base
                 user_id: current_user.id)
     if request.save
       flash.keep[:notice] = "Success - your booking has been sent to the owner"
-      redirect to('/')
+      redirect to('/users/profile')
     else
       flash.keep[:notice] = 'Sorry your booking was not sent'
       redirect to('/listings/search_listings')
@@ -46,13 +46,20 @@ class MakersBnB < Sinatra::Base
    date = Avdate.all(id: params[:date_id])
    request.update(:status => :accepted)
    date.update(:is_available => false)
-   redirect('/')
+   redirect('/users/profile')
   end
 
   post "/requests/reject_request" do
     request = Request.all(id: params[:request_id])
     request.update(:status => :rejected)
-    redirect('/')
- end
+    redirect('/users/profile')
+  end
+
+  post "/requests/delete_request" do
+    request = Request.all(id: params[:request_id])
+    request.destroy
+    redirect('/users/profile')
+  end
+
 
 end
