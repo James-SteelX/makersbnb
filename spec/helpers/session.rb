@@ -48,10 +48,24 @@ module SessionHelpers
   end
 
   def enter_dates
-    click_button 'Request stay'
+    visit('/users/profile')
+    click_button('Add dates')
     fill_in :start_date, with: '14/02/2017'
     fill_in :end_date, with: '16/02/2017'
-    click_button 'Make request'
+    click_button('Ok')
+    visit('/listings')
+    click_button 'Make Booking Request'
+    # fill_in :start_date, with: '14/02/2017'
+    # fill_in :end_date, with: '16/02/2017'
+    # click_button 'Make Booking Request'
+  end
+
+  def add_dates
+    visit('/users/profile')
+    click_button('Add dates')
+    fill_in :start_date, with: '14/02/2017'
+    fill_in :end_date, with: '16/02/2017'
+    click_button('Ok')
   end
 
 end
