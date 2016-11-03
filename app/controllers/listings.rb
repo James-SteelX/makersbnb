@@ -16,7 +16,7 @@ class MakersBnB < Sinatra::Base
   end
 
   post '/listings' do
-    listing = Listing.new(street_address: params[:street_address], city: params[:city], description: params[:description], price: params[:price]
+    listing = Listing.new(street_address: params[:street_address], city: params[:city], description: params[:description], price: params[:price])
     listing.user = current_user
     if listing.save
       # @listing_id = params[listing.id]
