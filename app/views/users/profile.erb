@@ -30,14 +30,15 @@
       Total cost:    £<%= ((request.end_date - request.start_date)*listing.price).floor %>
       <br>
       Status:        <%= output %>
-      <br><br>
       <% if output == "Rejected" %>
       <form action="/requests/delete_request" method="post">
         <input type = 'hidden' name = 'request_id' value = "<%= request.id %>" >
         <input type="submit" value="Delete request">
       </form>
+      <% else %>
+        <br>
       <% end %>
-
+      <br>
     </li>
   <% end %>
 </ul>

@@ -27,6 +27,12 @@ class MakersBnB < Sinatra::Base
   end
 
   post '/requests/request_booking' do
+    
+    if current_user == nil
+      flash.keep[:errors] = ['Please sign in to request a stay']
+      redirect('/sessions/sign_in')
+    end
+
     request = Request.new(start_date: params[:start_date],
                 end_date: params[:end_date],
                 listing_id: params[:listing_id],
