@@ -46,12 +46,4 @@ feature 'Search listings' do
     visit('/users/profile')
     expect(page).to have_content('You currently have no trips planned')
   end
-  #
-  # scenario 'user profile displays total cost for a stay' do
-  #   create_2_user_accounts
-  #   search_listings
-  #   enter_dates
-  #   visit('users/profile')
-  #   expect(page).to have_content('Total cost: £240')
-  # end
 end
