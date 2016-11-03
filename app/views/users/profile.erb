@@ -10,12 +10,12 @@
         City:             <%= result.city %>
         Description:      <%= result.description   %>
         Price per night:  <%= result.price   %>
-        <%= @listing_id = result.id   %>
+        <%= listing_id = result.id   %>
     <div>
     <div>
       Available dates:
         <ol>
-          <% @dates = @available_dates.all(listing_id: @listing_id) %>
+          <% @dates = @available_dates.all(listing_id: listing_id) %>
           <% @dates.each do |show_date| %>
           <li>
             Start date: <%= show_date.start_date %>
@@ -26,13 +26,13 @@
       </div>
     </li>
       <form action="/listings/add_date" method="post">
-        <input type = 'hidden' name = "listing_id" value = "<%= @listing_id %>" >
+        <input type = 'hidden' name = "listing_id" value = "<%= listing_id %>" >
         <input type="submit" value="Add dates">
       </form>
     </li>
   </li>
     <form action="/users/received_requests" method="post">
-      <input type = 'hidden' name = "listing_id" value = "<%= @listing_id %>" >
+      <input type = 'hidden' name = "listing_id" value = "<%= listing_id %>" >
       <input type="submit" value="View booking requests">
     </form>
   </li>

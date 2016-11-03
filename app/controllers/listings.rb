@@ -20,7 +20,7 @@ class MakersBnB < Sinatra::Base
     user = current_user
     listing.user = user
     if listing.save
-      @listing_id = params[listing.id]
+      # @listing_id = params[listing.id]
       erb :'listings/confirmation'
     else
       'sorry no good'
