@@ -1,13 +1,15 @@
-<head>
-  <title>Search MakersBnB</title>
-</head>
-
-<h3>Search for a location to stay in</h3>
-
-<form action="/listings/results" method="get">
-  <label for="search_listings">
-    Search by City: <input type="text" name="city">
-    Search by a listing ID: <input type="text" name="listing_id">
-  </label>
-    <input type="submit" value="Search">
-</form>
+    <div class="content">
+        <div class="pure-g">
+            <div class="l-box-lrg pure-u-1 pure-u-md-2-5">
+                <form class="pure-form pure-form-stacked" action="/listings/results" method="get">
+                    <fieldset>
+                      <label for="search_listings">
+                        Search by City: <input type="text" name="city">
+                        Search by a listing ID: <input type="text" name="listing_id">
+                      </label>
+                        <button type="submit" class="pure-button">Search</button>
+                    </fieldset>
+                </form>
+            </div>
+        </div>
+      </div>
