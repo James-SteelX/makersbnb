@@ -1,7 +1,7 @@
 
-<ul id='user-requests'>
-  <h1>Received requests</h1>
-  <% @user_requests.each do |request| %>
+<ul id='requests-i-have-received'>
+  <h1>Requests to stay at your properties</h1>
+  <% @requests_received.each do |request| %>
     <% listing = Listing.get(request.listing_id) %>
     <% user = User.get(request.user_id) %>
     <li>
@@ -16,3 +16,11 @@
     </li><br>
   <% end %>
 </ul>
+
+
+</li>
+  <form action="/users/profile" method="post">
+    <input type = 'hidden' name = "listing_id" value = "<%= listing_id %>" >
+    <input type="submit" value="View booking requests">
+  </form>
+</li>

@@ -3,8 +3,11 @@
 </head>
 
 <h2>View your booking requests</h2>
-<ul id='user-requests'>
-  <% @user_requests.each do |request| %>
+<ul id='requests-i-have-made'>
+  <% if @requests_made.empty? %>
+      <h3> You currently have no trips planned </h3>
+  <% end %>
+  <% @requests_made.each do |request| %>
     <% listing = Listing.get(request.listing_id) %>
     <% user = User.get(request.user_id) %>
     <li>
@@ -24,6 +27,35 @@
       <br>
     </li>
   <% end %>
+</ul>
+
+
+<ul id='requests-i-have-received'>
+  <h2>Requests to stay at your properties</h2>
+
+  <% if @requests_received.empty? %>
+      <h3> You have no booking requests </h3>
+  <% end %>
+
+  <% @requests_received.each do |request| %>
+    <% listing = Listing.get(request.listing_id) %>
+    <% user = User.get(request.user_id) %>
+    <li>
+      Request received from: <%= user.first_name + " " + user.last_name %>
+      <br>
+      For:            <%= listing.id   %>
+      <br>
+      City:          <%= listing.city   %>
+      <br>
+      Start date:    <%= request.start_date   %>
+      <br>
+      End date:      <%= request.end_date   %>
+      <br>
+      Status:        <%= request.status.to_s.capitalize.gsub!(/[^0-9A-Za-z]/, ' ')   %>
+      <br>
+    </li><br>
+  <% end %>
+
 </ul>
 
 <h2>View your property listings</h2>
@@ -55,11 +87,6 @@
         <input type="submit" value="Add dates">
       </form>
     </li>
-  </li>
-    <form action="/users/received_requests" method="post">
-      <input type = 'hidden' name = "listing_id" value = "<%= listing_id %>" >
-      <input type="submit" value="View booking requests">
-    </form>
-  </li>
+
   <% end %>
 </ul>
