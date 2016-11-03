@@ -2,6 +2,80 @@
   <title>User Profile</title>
 </head>
 
+<h2>View your booking requests</h2>
+<ul id='requests-i-have-made'>
+
+  <% if @requests_made.empty? %>
+      <h3> You currently have no trips planned </h3>
+  <% end %>
+  <% @requests_made.each do |request| %>
+  <% if request.status.to_s.capitalize == 'For_review' %>
+    <% output = 'For review' %>
+  <% else %>
+    <% output = request.status.to_s.capitalize %>
+  <% end %>
+    <% listing = Listing.get(request.listing_id) %>
+    <% user = User.get(request.user_id) %>
+    <li>
+      Request sent to: <%= user.first_name + " " + user.last_name %>
+      <br>
+      Location:      <%= listing.city %>
+      <br>
+      Start date:    <%= request.start_date   %>
+      <br>
+      End date:      <%= request.end_date   %>
+      <br>
+      Cost per night: <%= listing.price %>
+      <br>
+      Total cost:    £<%= ((request.end_date - request.start_date)*listing.price).floor %>
+      <br>
+      Status:        <%= output %>
+      <br>
+    </li>
+  <% end %>
+</ul>
+
+  <ul id='requests-i-have-received'>
+
+    <h1>Received requests</h1>
+    <% if @requests_received.empty? %>
+        <h3> You have no booking requests </h3>
+    <% end %>
+
+    <% @requests_received.each do |request| %>
+    <% if request.status.to_s.capitalize == 'For_review' %>
+      <% output = 'For review' %>
+    <% else %>
+      <% output = request.status.to_s.capitalize %>
+    <% end %>
+      <% listing = Listing.get(request.listing_id) %>
+      <% user = User.get(request.user_id) %>
+      <li>
+        Request received from: <%= user.first_name + " " + user.last_name %>
+        <br>
+        Start date:    <%= request.start_date   %>
+        <br>
+        End date:      <%= request.end_date   %>
+        <br>
+        Status:        <%= output %>
+        <br>
+        <form action="/requests/accept_request" method="post">
+          <input type = 'hidden' name = 'request_id' value = "<%= request.id %>" >
+          <input type = 'hidden' name = "date_id" value = "<%= request.avdate_id %>" >
+          <input type="submit" value="Accept">
+        </form>
+        <form action="/requests/reject_request" method="post">
+          <input type = 'hidden' name = "request_id" value = "<%= request.id %>" >
+          <input type="submit" value="Reject">
+        </form>
+
+      </li><br>
+    <% end %>
+  </ul>
+
+
+
+<h2>View your property listings</h2>
 <ul id='user-listings'>
   <% @user_listings.each do |result| %>
     <div>
@@ -30,11 +104,6 @@
         <input type="submit" value="Add dates">
       </form>
     </li>
-  </li>
-    <form action="/users/received_requests" method="post">
-      <input type = 'hidden' name = "listing_id" value = "<%= listing_id %>" >
-      <input type="submit" value="View booking requests">
-    </form>
-  </li>
+
   <% end %>
 </ul>

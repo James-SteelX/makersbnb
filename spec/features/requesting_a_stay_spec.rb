@@ -34,7 +34,7 @@ feature 'Search listings' do
     create_listing
     search_listings
     enter_dates
-    visit('/users/profile/requests')
+    visit('/users/profile')
     expect(page).to have_content 'Location: London'
     expect(page).to have_content 'Start date: 2017-02-14'
     expect(page).to have_content 'End date: 2017-02-16'
@@ -43,7 +43,7 @@ feature 'Search listings' do
 
   scenario 'Tells user if they have no requests currently' do
     sign_up
-    visit('/users/profile/requests')
+    visit('/users/profile')
     expect(page).to have_content('You currently have no trips planned')
   end
 end
