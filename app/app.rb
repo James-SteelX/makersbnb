@@ -10,6 +10,8 @@ require_relative 'controllers/users'
 require_relative 'controllers/search_listing'
 require_relative 'controllers/listings'
 require_relative 'controllers/requests'
+require_relative 'controllers/requests'
+require_relative 'lib/send_text'
 
 
 class MakersBnB < Sinatra::Base

@@ -1,3 +1,4 @@
+
 class MakersBnB < Sinatra::Base
 
   post '/requests/new' do
@@ -27,7 +28,7 @@ class MakersBnB < Sinatra::Base
   end
 
   post '/requests/request_booking' do
-    
+
     if current_user == nil
       flash.keep[:errors] = ['Please sign in to request a stay']
       redirect('/sessions/sign_in')
@@ -52,7 +53,9 @@ class MakersBnB < Sinatra::Base
    date = Avdate.all(id: params[:date_id])
    request.update(:status => :accepted)
    date.update(:is_available => false)
+   TextMessage.send(params[:requester_mobile], params[:city], params[:start_date], params[:requester_name])
    redirect('/users/profile')
+
   end
 
   post "/requests/reject_request" do
