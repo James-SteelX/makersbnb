@@ -38,8 +38,7 @@ feature 'Search listings' do
     enter_dates
     visit('/users/profile')
     expect(page).to have_content 'Location: London'
-    expect(page).to have_content 'Start date: 2017-02-14'
-    expect(page).to have_content 'End date: 2017-02-16'
+    expect(page).to have_content 'From: 2017-02-14 to 2017-02-16'
     expect(page).to have_content 'Status: For review'
   end
 

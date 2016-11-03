@@ -11,6 +11,6 @@ feature 'Show listings available dates' do
    fill_in "end_date", with: "2016/01/03"
    click_button('OK')
    expect(current_path).to eq('/users/profile')
-   expect(page).to have_content('Start date: 2016-01-01 End date: 2016-01-03')
+   expect(page).to have_content('Availability: 2016-01-01 to 2016-01-03')
   end
 end
