@@ -30,7 +30,14 @@
       Total cost:    £<%= ((request.end_date - request.start_date)*listing.price).floor %>
       <br>
       Status:        <%= output %>
-      <br>
+      <br><br>
+      <% if output == "Rejected" %>
+      <form action="/requests/delete_request" method="post">
+        <input type = 'hidden' name = 'request_id' value = "<%= request.id %>" >
+        <input type="submit" value="Delete request">
+      </form>
+      <% end %>
+
     </li>
   <% end %>
 </ul>
@@ -74,6 +81,26 @@
   </ul>
 
 
+  <ul id='requests-i-have-received'>
+
+    <h1>Accepted requests</h1>
+    <% if @accepted_requests_received.empty? %>
+        <h3> You have no accepted bookings </h3>
+    <% end %>
+
+    <% @accepted_requests_received.each do |request| %>
+      <% listing = Listing.get(request.listing_id) %>
+      <% user = User.get(request.user_id) %>
+      <li>
+        <%= user.first_name + " " + user.last_name %> will be visiting from
+        <br>
+        Start date:    <%= request.start_date   %>
+        <br>
+        End date:      <%= request.end_date   %>
+        <br>
+      </li><br>
+    <% end %>
+  </ul>
 
 <h2>View your property listings</h2>
 <ul id='user-listings'>
