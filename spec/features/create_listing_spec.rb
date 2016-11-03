@@ -11,7 +11,7 @@ feature 'Listing a property on makersbnb' do
   scenario 'user can create a listing' do
     sign_up
     expect{create_listing}.to change(Listing, :count).by(1)
-    expect(current_path).to eq('/listings/confirmation')
+    expect(current_path).to eq('/listings')
     expect(page).to have_content('Your home has been successfully listed')
   end
 

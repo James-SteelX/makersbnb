@@ -20,15 +20,17 @@ class MakersBnB < Sinatra::Base
     user = current_user
     listing.user = user
     if listing.save
-       redirect to('/listings/confirmation')
+      # @listing_id = params[listing.id]
+      erb :'listings/confirmation'
     else
       'sorry no good'
     end
   end
 
-  get '/listings/confirmation' do
-    erb :'listings/confirmation'
-  end
+  # post '/listings/confirmation' do
+  #   @listing_id = params[:listing_id]
+  #   erb :'listings/confirmation'
+  # end
 
   post '/listings/add_date' do
     @listing_id = params[:listing_id]
