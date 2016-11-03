@@ -160,7 +160,6 @@
         1,
         1,
         1,
-        null,
         1,
         null,
         null
@@ -254,8 +253,28 @@
         null,
         null,
         null
+      ],
+      "/Users/jamessteel/Desktop/Makers-Projects/makersbnb/spec/send_text_spec.rb": [
+        1,
+        null,
+        1,
+        null,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        0,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
       ]
     },
-    "timestamp": 1478189273
+    "timestamp": 1478190160
   }
 }

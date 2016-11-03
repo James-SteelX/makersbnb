@@ -52,7 +52,7 @@ module SessionHelpers
     click_button('Add dates')
     fill_in :start_date, with: '14/02/2017'
     fill_in :end_date, with: '16/02/2017'
-    click_button('Ok')
+    click_button('OK')
     visit('/listings')
     click_button 'Make Booking Request'
     # fill_in :start_date, with: '14/02/2017'
@@ -65,7 +65,7 @@ module SessionHelpers
     click_button('Add dates')
     fill_in :start_date, with: '14/02/2017'
     fill_in :end_date, with: '16/02/2017'
-    click_button('Ok')
+    click_button('OK')
   end
 
 end

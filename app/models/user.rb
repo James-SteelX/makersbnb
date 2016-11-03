@@ -13,12 +13,12 @@ require 'bcrypt'
    property :id,                Serial
    property :first_name,        String, required: true
    property :last_name,         String, required: true
-   property :mobile_number,     String, length: 11 
+   property :mobile_number,     String, length: 11
    property :email,             String, required: true, unique: true, format: :email_address
    property :password_digest,   Text, required: true
 
    has n, :listings
-  #  has n, :requests
+   has n, :requests
 
    validates_confirmation_of :password
 
