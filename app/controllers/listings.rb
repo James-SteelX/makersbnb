@@ -7,7 +7,7 @@ class MakersBnB < Sinatra::Base
    end
 
   get '/listings/new' do
-   if current_user != nil
+   if current_user
      erb :'listings/new'
    else
      flash.keep[:errors] = ['Please sign in to post a listing']
@@ -16,9 +16,8 @@ class MakersBnB < Sinatra::Base
   end
 
   post '/listings' do
-    listing = Listing.new(street_address: params[:street_address], city: params[:city], description: params[:description], price: params[:price])
-    user = current_user
-    listing.user = user
+    listing = Listing.new(street_address: params[:street_address], city: params[:city], description: params[:description], price: params[:price]
+    listing.user = current_user
     if listing.save
       # @listing_id = params[listing.id]
       erb :'listings/confirmation'
