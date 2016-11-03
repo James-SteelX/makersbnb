@@ -1,3 +1,4 @@
+
 class MakersBnB < Sinatra::Base
 
   post '/requests/new' do
@@ -44,8 +45,10 @@ class MakersBnB < Sinatra::Base
   post "/requests/accept_request" do
    request = Request.all(id: params[:request_id])
    date = Avdate.all(id: params[:date_id])
+
    request.update(:status => :accepted)
    date.update(:is_available => false)
+   TextMessage.send(params[:requester_mobile], params[:city], params[:start_date], params[:requester_name])
    redirect('/')
   end
 
