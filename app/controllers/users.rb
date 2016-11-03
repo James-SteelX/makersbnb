@@ -25,18 +25,20 @@ class MakersBnB < Sinatra::Base
   get '/users/profile' do
     @available_dates = Avdate.all(is_available: true)
     @user_listings = Listing.all(user_id: current_user.id)
-    erb(:'/users/profile')
-  end
-
-  get '/users/profile/requests' do
     @user_requests = Request.all(user_id: current_user.id)
     if @user_requests.empty?
       flash.now[:errors] = ['You currently have no trips planned']
-      erb(:'/users/requests')
+      erb(:'/users/profile')
     else
-      erb(:'/users/requests')
+      erb(:'/users/profile')
     end
+    erb(:'/users/profile')
   end
+
+  # get '/users/profile/requests' do
+  #   @user_requests = Request.all(user_id: current_user.id)
+  #
+  # end
 
   post "/users/received_requests" do
     @user_requests = Request.all(listing_id: params[:listing_id])
