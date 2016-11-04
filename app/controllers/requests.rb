@@ -19,7 +19,8 @@ class MakersBnB < Sinatra::Base
     if request.save
       redirect to('/requests/confirmation')
     else
-      'Sorry your message was not sent'
+      flash.keep[:errors] = ['Sorry your message was not sent']
+      redirect to('/requests/confirmation')
     end
   end
 
@@ -40,11 +41,11 @@ class MakersBnB < Sinatra::Base
                 availability_id:  params[:availability_id],
                 user_id: current_user.id)
     if request.save
-      flash.keep[:notice] = "Success - your booking has been sent to the owner"
-      redirect to('/users/profile')
+      flash.now[:notice] = "Success - your request has been sent to the owner"
+      erb :'/requests/confirmation'
     else
-      flash.keep[:notice] = 'Sorry your booking was not sent'
-      redirect to('/listings/search_listings')
+      flash.now[:notice] = 'Sorry there was a problem with your request'
+      erb :'/requests/confirmation'
     end
   end
 
