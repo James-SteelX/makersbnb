@@ -39,7 +39,13 @@ class MakersBnB < Sinatra::Base
 
   post '/listings/set_dates' do
     date = Availability.new(start_date: params[:start_date], end_date: params[:end_date], is_available: true, listing_id: params[:listing_id])
-    date.save
-    redirect('/users/profile')
+    if date.start_date > date.end_date
+      flash.now[:notice] = "Please enter dates in correct order"
+      @listing_id = params[:listing_id]
+      erb :'listings/add_date'
+    else
+      date.save
+      redirect('/users/profile')
+    end
   end
 end
