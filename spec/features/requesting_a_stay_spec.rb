@@ -8,7 +8,7 @@ feature 'Search listings' do
     search_listings
     click_button('Make Booking Request')
     expect(current_path).to eq '/users/profile'
-    # expect(page).to have_content 'Enter your desired start and end dates'
+    expect(page).to have_content 'Enter your desired start and end dates'
   end
 
   scenario 'specify the required dates of a stay' do
@@ -17,7 +17,7 @@ feature 'Search listings' do
     search_listings
     expect{enter_dates}.to change(Request, :count).by(1)
     expect(current_path).to eq '/users/profile'
-    # expect(page).to have_content 'Your request has been sent to the host'
+    expect(page).to have_content 'Success - your booking has been sent to the owner'
   end
 
   scenario 'cannot request a stay if not signed in' do

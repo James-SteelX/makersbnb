@@ -12,7 +12,7 @@
           <% if @dates.empty? %>
             <li class="listing-list-items"><strong>There are curently no available dates</strong></li>
           <% else %>
-            <li class="listing-list-items">Available dates:</li>x
+            <li class="listing-list-items">Available dates:</li>
             <ol>
               <% @dates.each do |show_date| %>
                 <li class="listing-list-items"><%= show_date.start_date %> to <%= show_date.end_date %> </li>
