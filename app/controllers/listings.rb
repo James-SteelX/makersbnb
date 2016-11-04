@@ -21,6 +21,7 @@ class MakersBnB < Sinatra::Base
     if listing.save
        listing.id
       @lastest_user_listing = Listing.all(id: listing.id)
+      Email.created_space(current_user.email, listing.city)
       erb :'listings/confirmation'
     else
       flash.keep[:errors] = ['Sorry, there was a problem when posting your listing. Please try again.']
@@ -50,6 +51,7 @@ class MakersBnB < Sinatra::Base
         @listing_id = params[:listing_id]
         erb :'listings/add_date'
       else
+        Email.updated_date(current_user.email, params[:start_date], params[:end_date], date.listing.city)
         date.save
         redirect('/users/profile')
       end

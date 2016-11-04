@@ -16,6 +16,7 @@ class MakersBnB < Sinatra::Base
       session[:user_id] = @user.id
       flash.keep[:notice] = "Welcome, #{@user.first_name}"
       redirect('/home')
+      Email.sign_up(@user.email)
     else
       flash.now[:errors] = @user.errors.full_messages
       erb :'/users/new'

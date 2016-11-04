@@ -10,6 +10,7 @@ gem 'sinatra-partial'
 gem 'rake'
 gem 'sinatra-flash'
 gem 'twilio-ruby'
+gem 'pony'
 
 group :test do
   gem 'database_cleaner'
