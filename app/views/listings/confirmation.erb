@@ -1,8 +1,24 @@
 <h2 class="content-head is-center">Your home has been successfully listed</h2>
 
-<form action="/listings/add_date" method="post">
-  <input type="submit" value="Add available dates" class="pure-button">
-</form>
+<div class="pure-u-2-5" id="pretty-box">
+  <ul id='user-listings'>
+    <h2 class="content-head is-center">Your current listings</h2>
+
+
+    <% @lastest_user_listing.each do |result| %>
+      <div class="pure-u-1-2">
+        <li><small>List ID:   <%= listing_id = result.id   %></small></li>
+        <li>Address:          <%= result.street_address %></li>
+        <l1>Decription:      <%= result.description %></li>
+        <li>Price per night:  <%= result.price   %></li>
+        <form action="/listings/add_date" method="post">
+          <input type = 'hidden' name = "listing_id" value = "<%= listing_id %>" >
+          <input type="submit" class="pure-button" value="Add dates">
+        </form>
+      <% end %>
+    </div>
+   </ul>
+  </div>
 
 <form action="/home" method="get">
   <input type="submit" value="Return home" class="pure-button">

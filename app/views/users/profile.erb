@@ -7,7 +7,7 @@
         <% if @requests_made.empty? %>
           <h3 class="content-head is-center"> You currently have no trips planned </h3>
         <% end %>
-        <% @requests_made.each do |request| %>
+        <% @requests_made.reverse_each do |request| %>
           <% if request.status.to_s.capitalize == 'For_review' %>
             <% output = 'For review' %>
           <% else %>
@@ -81,7 +81,7 @@
               <% if @accepted_requests_received.empty? %>
                 <h3 class="content-head is-center"> You have no accepted bookings </h3>
               <% end %>
-              <% @accepted_requests_received.each do |request| %>
+              <% @accepted_requests_received.reverse_each do |request| %>
                 <% listing = Listing.get(request.listing_id) %>
                 <% user = User.get(request.user_id) %>
                   <li><%= user.first_name + " " + user.last_name %> is confirmed.</li>
@@ -93,7 +93,7 @@
         <div class="pure-u-2-5" id="pretty-box">
           <ul id='user-listings'>
             <h2 class="content-head is-center">Your current listings</h2>
-            <% @user_listings.each do |result| %>
+            <% @user_listings.reverse_each do |result| %>
               <div class="pure-u-1-2">
                 <li><small>List ID:        <%= listing_id = result.id   %></small></li>
                 <li>Address:          <%= result.street_address %></li>

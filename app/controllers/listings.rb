@@ -19,17 +19,18 @@ class MakersBnB < Sinatra::Base
     listing = Listing.new(street_address: params[:street_address], city: params[:city], description: params[:description], price: params[:price])
     listing.user = current_user
     if listing.save
-      # @listing_id = params[listing.id]
+       listing.id
+      @lastest_user_listing = Listing.all(id: listing.id)
       erb :'listings/confirmation'
     else
       'sorry no good'
     end
   end
 
-  # post '/listings/confirmation' do
-  #   @listing_id = params[:listing_id]
-  #   erb :'listings/confirmation'
-  # end
+  get '/listings/confirmation' do
+    @lastest_user_listing = Listing.last
+    erb :'listings/confirmation'
+  end
 
   post '/listings/add_date' do
     @listing_id = params[:listing_id]
