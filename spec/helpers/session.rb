@@ -31,6 +31,13 @@ module SessionHelpers
     sign_up(first_name: 'George', last_name: 'Brown', email: 'jb@hotmail.com', password: 'password!', password_confirmation: 'password!')
   end
 
+  def create_2_user_accounts_wthout_a_listing
+    sign_up
+    add_dates
+    sign_out
+    sign_up(first_name: 'George', last_name: 'Brown', email: 'jb@hotmail.com', password: 'password!', password_confirmation: 'password!')
+  end
+
   def create_2_user_accounts_without_availability
     sign_up
     create_listing
@@ -82,14 +89,20 @@ module SessionHelpers
     click_button 'Make Booking Request'
   end
 
+  def enter_dates_without_requesting_it(start_date: '14/02/2017', end_date: '16/02/2017' )
+    visit('/users/profile')
+    click_button('Add dates')
+    fill_in :start_date, with: start_date
+    fill_in :end_date, with: end_date
+    click_button('OK')
+  end
+
   def enter_dates_in_the_past
     visit('/users/profile')
     click_button('Add dates')
     fill_in :start_date, with: '14/02/2016'
     fill_in :end_date, with: '16/02/2016'
     click_button('OK')
-    visit('/listings')
-    click_button 'Make Booking Request'
   end
 
   def add_dates
