@@ -1,7 +1,7 @@
 {
   "RSpec": {
     "coverage": {
-      "/Users/jen/Makers-Academy/week6/makersbnb/spec/features/create_listing_spec.rb": [
+      "/Users/jamessteel/Desktop/Makers-Projects/makersbnb/spec/features/create_listing_spec.rb": [
         1,
         null,
         1,
@@ -43,7 +43,7 @@
         null,
         null
       ],
-      "/Users/jen/Makers-Academy/week6/makersbnb/spec/features/manage_listing_spec.rb": [
+      "/Users/jamessteel/Desktop/Makers-Projects/makersbnb/spec/features/manage_listing_spec.rb": [
         1,
         null,
         1,
@@ -57,7 +57,7 @@
         null,
         null
       ],
-      "/Users/jen/Makers-Academy/week6/makersbnb/spec/features/requesting_a_stay_spec.rb": [
+      "/Users/jamessteel/Desktop/Makers-Projects/makersbnb/spec/features/requesting_a_stay_spec.rb": [
         1,
         null,
         1,
@@ -109,7 +109,7 @@
         null,
         null
       ],
-      "/Users/jen/Makers-Academy/week6/makersbnb/spec/features/search_listings_spec.rb": [
+      "/Users/jamessteel/Desktop/Makers-Projects/makersbnb/spec/features/search_listings_spec.rb": [
         1,
         null,
         1,
@@ -144,7 +144,7 @@
         null,
         null
       ],
-      "/Users/jen/Makers-Academy/week6/makersbnb/spec/features/show_available_dates_spec.rb": [
+      "/Users/jamessteel/Desktop/Makers-Projects/makersbnb/spec/features/show_available_dates_spec.rb": [
         1,
         null,
         1,
@@ -162,7 +162,7 @@
         null,
         null
       ],
-      "/Users/jen/Makers-Academy/week6/makersbnb/spec/features/show_bookingrequests_spec.rb": [
+      "/Users/jamessteel/Desktop/Makers-Projects/makersbnb/spec/features/show_bookingrequests_spec.rb": [
         1,
         null,
         1,
@@ -206,7 +206,7 @@
         null,
         null
       ],
-      "/Users/jen/Makers-Academy/week6/makersbnb/spec/features/sign_in_spec.rb": [
+      "/Users/jamessteel/Desktop/Makers-Projects/makersbnb/spec/features/sign_in_spec.rb": [
         1,
         null,
         1,
@@ -232,7 +232,7 @@
         null,
         null
       ],
-      "/Users/jen/Makers-Academy/week6/makersbnb/spec/features/sign_out_spec.rb": [
+      "/Users/jamessteel/Desktop/Makers-Projects/makersbnb/spec/features/sign_out_spec.rb": [
         1,
         null,
         1,
@@ -248,7 +248,7 @@
         null,
         null
       ],
-      "/Users/jen/Makers-Academy/week6/makersbnb/spec/features/user_sign_up_spec.rb": [
+      "/Users/jamessteel/Desktop/Makers-Projects/makersbnb/spec/features/user_sign_up_spec.rb": [
         1,
         null,
         1,
@@ -274,7 +274,7 @@
         null,
         null
       ],
-      "/Users/jen/Makers-Academy/week6/makersbnb/spec/models/user_spec.rb": [
+      "/Users/jamessteel/Desktop/Makers-Projects/makersbnb/spec/models/user_spec.rb": [
         1,
         null,
         1,
@@ -296,7 +296,7 @@
         null,
         null
       ],
-      "/Users/jen/Makers-Academy/week6/makersbnb/spec/send_text_spec.rb": [
+      "/Users/jamessteel/Desktop/Makers-Projects/makersbnb/spec/send_text_spec.rb": [
         1,
         null,
         1,
@@ -316,6 +316,6 @@
         null
       ]
     },
-    "timestamp": 1478272947
+    "timestamp": 1478273866
   }
 }
