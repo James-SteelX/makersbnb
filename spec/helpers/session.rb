@@ -26,6 +26,7 @@ module SessionHelpers
   def create_2_user_accounts
     sign_up
     create_listing
+    add_dates
     sign_out
     sign_up(first_name: 'George', last_name: 'Brown', email: 'jb@hotmail.com', password: 'password!', password_confirmation: 'password!')
   end
