@@ -2,10 +2,6 @@ require 'twilio-ruby'
 
 class TextMessage
 
-  #  def self.send(number, city, start_date, name)
-  #    send_text(number, city, start_date, name)
-  #  end
-
    def self.send(number, city, start_date, name)
       account_sid = 'AC554ac98c7c138bdff979db865e60d125'
       auth_token = '39b15464a6c26800003b5972fe3898e3'
