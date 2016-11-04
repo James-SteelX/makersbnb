@@ -99,12 +99,12 @@
                 <li>Address:          <%= result.street_address %></li>
                 <li>Price per night:  <%= result.price   %></li>
                 <li>Availability:
+                  <ol>
                   <% @dates = @available_dates.all(listing_id: listing_id) %>
-                    <ol>
                       <% @dates.each do |show_date| %>
                       <li><%= show_date.start_date %> to <%= show_date.end_date %> </li>
-                    </ol>
                   <% end %>
+                </ol>
                 </li>
           </div>
           <form action="/listings/add_date" method="post">
