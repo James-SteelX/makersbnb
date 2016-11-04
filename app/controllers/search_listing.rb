@@ -13,7 +13,7 @@ class MakersBnB < Sinatra::Base
       @all_listings = Listing.all(city: params[:city])
     end
 
-    if !params[:start_date].empty? && !params[:end_date].empty?
+    unless params[:start_date].empty? && params[:end_date].empty?
       @available_dates = Availability.all(:start_date.gte => params[:start_date], :end_date.lte => params[:end_date], is_available: true)
     else
       @available_dates = Availability.all(is_available: true)

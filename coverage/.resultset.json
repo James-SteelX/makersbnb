@@ -166,6 +166,25 @@
         1,
         1,
         null,
+        null,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        null,
         null
       ],
       "/Users/liam.taylor/Projects/makersbnb/spec/features/show_available_dates_spec.rb": [
@@ -341,6 +360,6 @@
         null
       ]
     },
-    "timestamp": 1478288999
+    "timestamp": 1478295472
   }
 }

@@ -13,7 +13,7 @@
               <li class="listing-list-items">Price per night: <%= result.price   %></li>
             <% @dates = @available_dates.all(listing_id: listing_id) %>
             <% if @dates.empty? %>
-              <li class="listing-list-items"><strong>There are curently no available dates</strong></li>
+              <li class="listing-list-items"><strong>There are curently no dates that match your requirement</strong></li>
             <% else %>
               <li class="listing-list-items">Available dates:</li>
               <ol>
