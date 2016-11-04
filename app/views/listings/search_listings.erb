@@ -5,8 +5,13 @@
                 <form class="pure-form pure-form-stacked" action="/listings/results" method="get">
                     <fieldset>
                       <label for="search_listings">
-                        Search by City: <input type="text" name="city">
-                        Search by a listing ID: <input type="text" name="listing_id">
+                        Search by city: <input type="text" name="city">
+                        <br>
+                        Or, search by a listing ID: <input type="text" name="listing_id">
+                        When do you need the place? If you're not sure, just leave this bit blank
+                        <br>
+                        Start date: <input type="date" name="start_date">
+                        End date: <input type="date" name="end_date">
                       </label>
                         <button type="submit" class="pure-button">Search</button>
                     </fieldset>

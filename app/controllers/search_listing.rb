@@ -5,19 +5,18 @@ class MakersBnB < Sinatra::Base
   end
 
   get '/listings/results' do
-    if params[:listing_id].empty?
-      @results = params[:city]
-      @available_dates = Availability.all(is_available: true)
-      @all_listings = Listing.all(city: params[:city])
-
-    elsif params[:city].empty?
-      @results = params[:listing_id]
-      @available_dates = Availability.all(is_available: true)
+    if params[:city].empty? && params[:listing_id].empty?
+      @all_listings = Listing.all
+    elsif params[:city].empty? && params[:listing_id]
       @all_listings = Listing.all(id: params[:listing_id])
+    elsif params[:listing_id].empty? && params[:city]
+      @all_listings = Listing.all(city: params[:city])
+    end
+
+    unless params[:start_date].empty? && params[:end_date].empty?
+      @available_dates = Availability.all(:start_date.gte => params[:start_date], :end_date.lte => params[:end_date], is_available: true)
     else
-      @results = "#{params[:city]} and #{params[:listing_id]}"
       @available_dates = Availability.all(is_available: true)
-      @all_listings = Listing.all(id: params[:listing_id], city: params[:city])
     end
     erb :'/listings/listings'
   end
