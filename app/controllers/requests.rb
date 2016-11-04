@@ -19,7 +19,8 @@ class MakersBnB < Sinatra::Base
     if request.save
       redirect to('/requests/confirmation')
     else
-      'Sorry your message was not sent'
+      flash.keep[:errors] = ['Sorry your message was not sent']
+      redirect to('/requests/confirmation')
     end
   end
 

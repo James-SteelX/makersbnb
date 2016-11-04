@@ -23,7 +23,8 @@ class MakersBnB < Sinatra::Base
       @lastest_user_listing = Listing.all(id: listing.id)
       erb :'listings/confirmation'
     else
-      'sorry no good'
+      flash.keep[:errors] = ['Sorry, there was a problem when posting your listing. Please try again.']
+      redirect('/listings/new')
     end
   end
 
