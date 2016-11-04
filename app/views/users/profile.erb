@@ -1,13 +1,14 @@
+
 <h2 class="content-head is-center">Profile for <%= current_user.first_name %></h2>
 <div class="content pure-g">
   <div class="pure-u-2-5" id="pretty-box">
       <ul id='requests-i-have-made'>
         <h2 class="content-head is-center">Your booking requests</h2>
 
-        <% if @requests_made.empty? %>
+        <% if @profile.requests_made.empty? %>
           <h3 class="content-head is-center"> You currently have no trips planned </h3>
         <% end %>
-        <% @requests_made.reverse_each do |request| %>
+        <% @profile.requests_made.reverse_each do |request| %>
           <% if request.status.to_s.capitalize == 'For_review' %>
             <% output = 'For review' %>
           <% else %>
@@ -38,10 +39,10 @@
       <div class="pure-u-2-5" id="pretty-box">
         <ul id='requests-i-have-received'>
           <h2 class="content-head is-center">Received requests</h2>
-            <% if @requests_received.empty? %>
+            <% if @profile.requests_received.empty? %>
               <h3 class="content-head is-center"> You have no booking requests </h3>
             <% end %>
-            <% @requests_received.each do |request| %>
+            <% @profile.requests_received.each do |request| %>
               <% if request.status.to_s.capitalize == 'For_review' %>
                 <% output = 'For review' %>
               <% else %>
@@ -79,10 +80,10 @@
         <div class="pure-u-2-5" id="pretty-box">
           <ul id='requests-i-have-received'>
             <h2 class="content-head is-center">Accepted requests</h2>
-              <% if @accepted_requests_received.empty? %>
+              <% if @profile.accepted_requests_received.empty? %>
                 <h3 class="content-head is-center"> You have no accepted bookings </h3>
               <% end %>
-              <% @accepted_requests_received.reverse_each do |request| %>
+              <% @profile.accepted_requests_received.reverse_each do |request| %>
                 <% listing = Listing.get(request.listing_id) %>
                 <% user = User.get(request.user_id) %>
                   <li><%= user.first_name + " " + user.last_name %> is confirmed.</li>
@@ -94,7 +95,7 @@
         <div class="pure-u-2-5" id="pretty-box">
           <ul id='user-listings'>
             <h2 class="content-head is-center">Your current listings</h2>
-            <% @user_listings.reverse_each do |result| %>
+            <% @profile.user_listings.reverse_each do |result| %>
               <div class="pure-u-1-2">
                 <li><small>List ID:        <%= listing_id = result.id   %></small></li>
                 <li>City:          <%= result.city %></li>
@@ -102,7 +103,7 @@
                 <li>Price per night:  <%= result.price   %></li>
                 <li>Availability:
                   <ol>
-                  <% @dates = @available_dates.all(listing_id: listing_id) %>
+                  <% @dates = @profile.available_dates.all(listing_id: listing_id) %>
                       <% @dates.each do |show_date| %>
                       <li><%= show_date.start_date %> to <%= show_date.end_date %> </li>
                   <% end %>

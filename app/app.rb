@@ -12,6 +12,7 @@ require_relative 'controllers/listings'
 require_relative 'controllers/requests'
 require_relative 'controllers/requests'
 require_relative 'lib/send_text'
+require_relative 'lib/profile'
 
 
 class MakersBnB < Sinatra::Base
