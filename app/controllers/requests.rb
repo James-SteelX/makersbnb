@@ -52,8 +52,11 @@ class MakersBnB < Sinatra::Base
   post "/requests/accept_request" do
    request = Request.all(id: params[:request_id])
    date = Availability.all(id: params[:date_id])
-   request.update(:status => :accepted)
    date.update(:is_available => false)
+   rejected = Request.all(availability_id: params[:date_id])
+   rejected.update(:status => :rejected)
+   request.update(:status => :accepted)
+   p rejected
    if params[:requester_mobile].empty?
     redirect('/users/profile')
    else

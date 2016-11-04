@@ -25,7 +25,7 @@
             <% if output == "Rejected" %>
               <form action="/requests/delete_request" method="post">
                 <input type = 'hidden' name = 'request_id' value = "<%= request.id %>" >
-                <input type="submit" value="Delete request">
+                <input type="submit" class="pure-button" value="Delete request">
               </form>
             <% else %>
               <br>
