@@ -40,6 +40,19 @@ class MakersBnB < Sinatra::Base
 
   post '/listings/set_dates' do
     date = Availability.new(start_date: params[:start_date], end_date: params[:end_date], is_available: true, listing_id: params[:listing_id])
+    all_dates_for_listing = Availability.all(listing_id: params[:listing_id])
+    p date
+    # p date.end_date
+    all_dates_for_listing.each do |find_date|
+      if (find_date.start_date >= date.start_date) && (find_date.start_date <= date.end_date)
+        p 'works'
+      end
+    end
+    # p all_dates_for_listing.end_date
+    # if (date.start_date > all_dates_for_listing.start_date)
+      #&& (date.start_date < all_dates_for_listing.end_date)
+    # if date.start_date && date.end_date == all_dates_for_listing.start_date && all_dates_for_listing.end_date
+      # p "FAIL"
     if date.start_date > date.end_date
       flash.now[:notice] = "Please enter dates in correct order"
       @listing_id = params[:listing_id]
