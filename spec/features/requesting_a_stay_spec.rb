@@ -8,7 +8,8 @@ feature 'Search listings' do
     search_listings
     click_button('Make Booking Request')
     expect(current_path).to eq '/users/profile'
-    expect(page).to have_content 'Enter your desired start and end dates'
+    expect(page).to have_content 'Request sent to: Terry McGuire'
+    expect(page).to have_content '2017-02-14 to 2017-02-16'
   end
 
   scenario 'specify the required dates of a stay' do

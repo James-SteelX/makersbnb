@@ -50,6 +50,7 @@
               <% listing = Listing.get(request.listing_id) %>
               <% user = User.get(request.user_id) %>
                 <li>Request received from: <%= user.first_name + " " + user.last_name %></li>
+                <li>City: <%= listing.city %></li>
                 <li>From: <%= request.start_date   %> to <%= request.end_date   %></li>
                 <li>Status: <%= output %></li>
                 <form action="/requests/accept_request" method="post">
@@ -96,6 +97,7 @@
             <% @user_listings.reverse_each do |result| %>
               <div class="pure-u-1-2">
                 <li><small>List ID:        <%= listing_id = result.id   %></small></li>
+                <li>City:          <%= result.city %></li>
                 <li>Address:          <%= result.street_address %></li>
                 <li>Price per night:  <%= result.price   %></li>
                 <li>Availability:
