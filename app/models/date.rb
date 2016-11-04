@@ -2,7 +2,7 @@ require 'data_mapper'
 require 'dm-postgres-adapter'
 require 'dm-migrations'
 
- class Avdate
+ class Availability
 
   include DataMapper::Resource
 

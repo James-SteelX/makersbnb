@@ -23,7 +23,7 @@ class MakersBnB < Sinatra::Base
   end
 
   get '/users/profile' do
-    @available_dates = Avdate.all(is_available: true)
+    @available_dates = Availability.all(is_available: true)
     @user_listings = Listing.all(user_id: current_user.id) #current_user.listings
     @requests_made = Request.all(user_id: current_user.id) #current_user.requests
     @requests_received = Request.all(user_id: current_user.id, status: :for_review) #current_user.requests(status: :for_review)
