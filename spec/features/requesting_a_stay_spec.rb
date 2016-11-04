@@ -5,7 +5,7 @@ feature 'Search listings' do
     sign_up
     create_listing
     add_dates
-    search_listings
+    search_listings(listing_id: "")
     click_button('Make Booking Request')
     visit '/users/profile'
     expect(page).to have_content 'Request sent to: Terry McGuire'
@@ -15,7 +15,7 @@ feature 'Search listings' do
   scenario 'specify the required dates of a stay' do
     sign_up
     create_listing
-    search_listings
+    search_listings(listing_id: "")
     expect{enter_dates}.to change(Request, :count).by(1)
     visit '/users/profile'
     expect(page).to have_content 'Success - your booking has been sent to the owner'
@@ -26,7 +26,7 @@ feature 'Search listings' do
     create_listing
     enter_dates
     sign_out
-    search_listings
+    search_listings(listing_id: "")
     click_button 'Make Booking Request'
     expect(current_path).to eq '/sessions/sign_in'
     expect(page).to have_content 'Please sign in to request a stay'
@@ -35,7 +35,7 @@ feature 'Search listings' do
   scenario 'displays the status of a request' do
     sign_up
     create_listing
-    search_listings
+    search_listings(listing_id: "")
     enter_dates
     visit('/users/profile')
     expect(page).to have_content 'Location: London'

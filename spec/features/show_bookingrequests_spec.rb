@@ -5,6 +5,7 @@ feature 'Show booking requests' do
    create_2_user_accounts
    create_listing
    enter_dates
+   visit('users/profile')
    expect(page).to have_content('Request received from: George Brown')
  end
 
