@@ -29,18 +29,17 @@ class MakersBnB < Sinatra::Base
   end
 
   post '/requests/request_booking' do
-
     if current_user == nil
       flash.keep[:errors] = ['Please sign in to request a stay']
       redirect('/sessions/sign_in')
     end
-
     request = Request.new(start_date: params[:start_date],
                 end_date: params[:end_date],
                 listing_id: params[:listing_id],
                 availability_id:  params[:availability_id],
                 user_id: current_user.id)
     if request.save
+      Email.send_request(current_user.email, request.start_date, request.listing.city)
       flash.now[:notice] = "Success - your request has been sent to the owner"
       erb :'/requests/confirmation'
     else
@@ -57,6 +56,7 @@ class MakersBnB < Sinatra::Base
    if params[:requester_mobile].empty?
     redirect('/users/profile')
    else
+    Email.accepted_request(params[:requester_email], params[:start_date], params[:city])
     TextMessage.send(params[:requester_mobile], params[:city], params[:start_date], params[:requester_name])
     redirect('/users/profile')
    end
@@ -65,6 +65,7 @@ class MakersBnB < Sinatra::Base
   post "/requests/reject_request" do
     request = Request.all(id: params[:request_id])
     request.update(:status => :rejected)
+    Email.rejected_request(params[:requester_email], params[:start_date], params[:city])
     redirect('/users/profile')
   end
 

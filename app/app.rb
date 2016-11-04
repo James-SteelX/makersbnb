@@ -1,5 +1,6 @@
 ENV['RACK_ENV'] ||= 'development'
 
+require 'pony'
 require 'sinatra/base'
 require 'sinatra/flash'
 require 'sinatra/partial'
@@ -13,6 +14,7 @@ require_relative 'controllers/requests'
 require_relative 'controllers/requests'
 require_relative 'lib/send_text'
 require_relative 'lib/profile'
+require_relative 'lib/email'
 
 
 class MakersBnB < Sinatra::Base
