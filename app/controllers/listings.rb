@@ -42,7 +42,7 @@ class MakersBnB < Sinatra::Base
     date = Availability.new(start_date: params[:start_date], end_date: params[:end_date], is_available: true, listing_id: params[:listing_id])
     all_dates = Availability.all(:start_date.gte => params[:start_date], :end_date.lte => params[:end_date], :listing_id => params[:listing_id])
       if !all_dates.empty?
-        flash.now[:notice] = "You already have availability set for those dates"
+        flash.now[:notice] = "You already have an availability set for those dates"
         @listing_id = params[:listing_id]
         erb :'listings/add_date'
       elsif date.start_date > date.end_date
