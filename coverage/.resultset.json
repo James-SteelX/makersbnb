@@ -176,6 +176,34 @@
         1,
         1,
         null,
+        null,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        null,
+        null,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        null,
+        null,
+        null,
         null
       ],
       "/Users/jen/Makers-Academy/week6/makersbnb/spec/features/sign_in_spec.rb": [
@@ -288,6 +316,6 @@
         null
       ]
     },
-    "timestamp": 1478271609
+    "timestamp": 1478272947
   }
 }

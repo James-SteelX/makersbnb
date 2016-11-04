@@ -7,7 +7,7 @@ class Profile
     @user_listings = current_user.listings
     @requests_made = current_user.requests
     @requests_received = current_user.listings.requests(status: :for_review)
-    @accepted_requests_received = current_user.listings.requests(status: :accepted)
+    @accepted_requests_received = current_user.listings.requests(status: :accepted, :end_date.gte => Time.now )
   end
 
 end
