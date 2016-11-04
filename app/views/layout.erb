@@ -70,22 +70,24 @@
           </ul>
       </div>
   </div>
-    <div class='flash'>
-    <% if flash[:notice] %>
-      <h3><%= flash[:notice] %></h3>
-    <% end %>
-    <% if flash[:errors] && !flash[:errors].empty? %>
-      Please refer to the following errors below:
-      <ul id = 'errors'>
-        <% flash[:errors].each do |error| %>
-        <li> <%= error %> </li>
-      <% end %>
-    </ul>
-    <% end %>
-    </div>
 
   <div class="content-wrapper">
+
     <%= yield %>
+
+    <div class='flash'>
+      <% if flash[:notice] %>
+        <h3><%= flash[:notice] %></h3>
+      <% end %>
+      <% if flash[:errors] && !flash[:errors].empty? %>
+        Please refer to the following errors below:
+        <ul id = 'errors'>
+          <% flash[:errors].each do |error| %>
+          <li> <%= error %> </li>
+        <% end %>
+        </ul>
+      <% end %>
+    </div>
   </div>
 
 </body>
