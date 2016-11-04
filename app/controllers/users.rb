@@ -24,10 +24,10 @@ class MakersBnB < Sinatra::Base
 
   get '/users/profile' do
     @available_dates = Availability.all(is_available: true)
-    @user_listings = Listing.all(user_id: current_user.id) #current_user.listings
-    @requests_made = Request.all(user_id: current_user.id) #current_user.requests
-    @requests_received = Request.all(user_id: current_user.id, status: :for_review) #current_user.requests(status: :for_review)
-    @accepted_requests_received = Request.all(user_id: current_user.id, status: :accepted)
+    @user_listings = current_user.listings
+    @requests_made = current_user.requests
+    @requests_received = current_user.listings.requests(status: :for_review)
+    @accepted_requests_received = current_user.listings.requests(status: :accepted)
     erb(:'/users/profile')
   end
 end
