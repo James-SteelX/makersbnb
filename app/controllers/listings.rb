@@ -2,7 +2,7 @@ class MakersBnB < Sinatra::Base
 
    get '/listings' do
     @all_listings = Listing.all
-    @available_dates = Avdate.all(is_available: true)
+    @available_dates = Availability.all(is_available: true)
     erb :'listings/listings'
    end
 
@@ -38,7 +38,7 @@ class MakersBnB < Sinatra::Base
   end
 
   post '/listings/set_dates' do
-    date = Avdate.new(start_date: params[:start_date], end_date: params[:end_date], is_available: true, listing_id: params[:listing_id])
+    date = Availability.new(start_date: params[:start_date], end_date: params[:end_date], is_available: true, listing_id: params[:listing_id])
     date.save
     redirect('/users/profile')
   end

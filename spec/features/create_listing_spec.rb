@@ -33,7 +33,7 @@ feature 'Listing a property on makersbnb' do
     expect(page).to have_content('Add available dates to your property')
     fill_in :start_date, with: '14/02/2017'
     fill_in :end_date, with: '16/02/2017'
-    expect{click_button('OK')}.to change(Avdate, :count).by(1)
+    expect{click_button('OK')}.to change(Availability, :count).by(1)
   end
 
 

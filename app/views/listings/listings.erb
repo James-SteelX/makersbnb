@@ -17,7 +17,7 @@
               <% @dates.each do |show_date| %>
                 <li class="listing-list-items"><%= show_date.start_date %> to <%= show_date.end_date %> </li>
                 <form action="/requests/request_booking" method="post">
-                  <input type = 'hidden' name = "avdate_id" value = "<%= show_date.id %>" >
+                  <input type = 'hidden' name = "availability_id" value = "<%= show_date.id %>" >
                   <input type = 'hidden' name = "start_date" value = "<%= show_date.start_date %>" >
                   <input type = 'hidden' name = "end_date" value = "<%= show_date.end_date %>" >
                   <input type = 'hidden' name = "listing_id" value = "<%= listing_id %>" >
