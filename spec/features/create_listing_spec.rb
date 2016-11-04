@@ -26,4 +26,15 @@ feature 'Listing a property on makersbnb' do
     expect(page).to have_content('Please sign in to post a listing')
   end
 
+  scenario 'user can add dates to a listing' do
+    sign_up
+    create_listing
+    click_button('Add dates')
+    expect(page).to have_content('Add available dates to your property')
+    fill_in :start_date, with: '14/02/2017'
+    fill_in :end_date, with: '16/02/2017'
+    expect{click_button('OK')}.to change(Avdate, :count).by(1)
+  end
+
+
 end
