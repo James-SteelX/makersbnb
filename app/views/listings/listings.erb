@@ -1,63 +1,32 @@
-<head>
-  <title>Current Listings</title>
-</head>
+<div class="content pure-g">
 
-<form action="/listings/search_listings" method="get">
-<input type="submit" value="Search listings">
-</form>
-
-<form action="/listings/new" method="get">
-<input type="submit" value="Add listing">
-</form>
-
-
-<h3>Listings</h3>
-
-<br />
-<ul id='listings'>
-  <% @all_listings.each do |result| %>
-    <li>
-      <div>
-        City:             <%= result.city %>
-        <br>
-        Description:      <%= result.description   %>
-        <br>
-        Price per night:  <%= result.price   %>
-        <br>
-        <!-- <%= listing_id = result.id   %> -->
-      </div>
-      <div>
-        <% @dates = @available_dates.all(listing_id: listing_id) %>
-        <% if @dates.empty? %>
-          There are curently no available dates
-        <% else %>
-          Available dates:
-         <ol>
-
-        <% @dates.each do |show_date| %>
-          <li>
-            <form action="/requests/request_booking" method="post">
-              Start date: <%= show_date.start_date %>
-              End date: <%= show_date.end_date %>
-              <input type = 'hidden' name = "avdate_id" value = "<%= show_date.id %>" >
-              <input type = 'hidden' name = "start_date" value = "<%= show_date.start_date %>" >
-              <input type = 'hidden' name = "end_date" value = "<%= show_date.end_date %>" >
-              <input type = 'hidden' name = "listing_id" value = "<%= listing_id %>" >
-              <input type="submit" value="Make Booking Request">
-            </form>
-
-          </li>
-        <% end %>
+<h2 class="content-head is-center" style="margin-left:auto;margin-right:auto;">Listings</h2>
+    <ul id='listings'>
+      <% @all_listings.each do |result| %>
+          <div class="pure-u-2-5" id="pretty-box">
+            <li class="listing-list-items"><small>Listing id:  <%= listing_id = result.id %></small></li>
+            <li class="listing-list-items">City: <%= result.city %></li>
+            <li class="listing-list-items">Description: <%= result.description   %></li>
+            <li class="listing-list-items">Price per night: <%= result.price   %></li>
+          <% @dates = @available_dates.all(listing_id: listing_id) %>
+          <% if @dates.empty? %>
+            <li class="listing-list-items"><strong>There are curently no available dates</strong></li>
+          <% else %>
+            <li class="listing-list-items">Available dates:</li>
+            <ol>
+              <% @dates.each do |show_date| %>
+                <li class="listing-list-items"><%= show_date.start_date %> to <%= show_date.end_date %> </li>
+                <form action="/requests/request_booking" method="post">
+                  <input type = 'hidden' name = "avdate_id" value = "<%= show_date.id %>" >
+                  <input type = 'hidden' name = "start_date" value = "<%= show_date.start_date %>" >
+                  <input type = 'hidden' name = "end_date" value = "<%= show_date.end_date %>" >
+                  <input type = 'hidden' name = "listing_id" value = "<%= listing_id %>" >
+                  <input type="submit" class="pure-button" value="Make Booking Request">
+                </form>
+              <% end %>
+            </ol>
+          <% end %>
+        </div>
       <% end %>
-    </ol>
-    </div>
-
-      <!-- <form action="/requests/new" method="post">
-        <input type = 'hidden' name = "listing_id" value = "<%= listing_id %>" >
-        <input type="submit" value="Request stay">
-      </form> -->
-
-    </li>
-    <br>
-  <% end %>
-</ul>
+    </ul>
+</div>

@@ -1,147 +1,116 @@
-<head>
-  <title>User Profile</title>
-</head>
+<h2 class="content-head is-center">Profile for <%= current_user.first_name %></h2>
+<div class="content pure-g">
+  <div class="pure-u-2-5" id="pretty-box">
+      <ul id='requests-i-have-made'>
+        <h2 class="content-head is-center">Your booking requests</h2>
 
-<h2>View your booking requests</h2>
-<ul id='requests-i-have-made'>
-
-  <% if @requests_made.empty? %>
-      <h3> You currently have no trips planned </h3>
-  <% end %>
-  <% @requests_made.each do |request| %>
-  <% if request.status.to_s.capitalize == 'For_review' %>
-    <% output = 'For review' %>
-  <% else %>
-    <% output = request.status.to_s.capitalize %>
-  <% end %>
-    <% listing = Listing.get(request.listing_id) %>
-    <% user = User.get(request.user_id) %>
-    <li>
-      Request sent to: <%= user.first_name + " " + user.last_name %>
-      <br>
-      Location:      <%= listing.city %>
-      <br>
-      Start date:    <%= request.start_date   %>
-      <br>
-      End date:      <%= request.end_date   %>
-      <br>
-      Cost per night: <%= listing.price %>
-      <br>
-      Total cost:    £<%= ((request.end_date - request.start_date)*listing.price).floor %>
-      <br>
-      Status:        <%= output %>
-      <% if output == "Rejected" %>
-      <form action="/requests/delete_request" method="post">
-        <input type = 'hidden' name = 'request_id' value = "<%= request.id %>" >
-        <input type="submit" value="Delete request">
-      </form>
-      <% else %>
-        <br>
-      <% end %>
-      <br>
-    </li>
-  <% end %>
-</ul>
-
-  <ul id='requests-i-have-received'>
-
-    <h1>Received requests</h1>
-    <% if @requests_received.empty? %>
-        <h3> You have no booking requests </h3>
-    <% end %>
-
-    <% @requests_received.each do |request| %>
-    <% if request.status.to_s.capitalize == 'For_review' %>
-      <% output = 'For review' %>
-    <% else %>
-      <% output = request.status.to_s.capitalize %>
-    <% end %>
-      <% listing = Listing.get(request.listing_id) %>
-      <% user = User.get(request.user_id) %>
-      <li>
-        Request received from: <%= user.first_name + " " + user.last_name %>
-        <br>
-        Start date:    <%= request.start_date   %>
-        <br>
-        End date:      <%= request.end_date   %>
-        <br>
-        Status:        <%= output %>
-        <br>
-        <form action="/requests/accept_request" method="post">
-          
-          <% requester_name = user.first_name %>
-          <% city = listing.city %>
-          <% requester_mobile = user.mobile_number %>
-          <% start_date = request.start_date %>
-
-          <input type = 'hidden' name = 'request_id' value = "<%= request.id %>" >
-          <input type = 'hidden' name = "date_id" value = "<%= request.avdate_id %>" >
-          <input type = 'hidden' name = "requester_name" value = "<%= requester_name %>" >
-          <input type = 'hidden' name = "city" value = "<%= city %>" >
-          <input type = 'hidden' name = "requester_mobile" value = "<%= requester_mobile %>" >
-          <input type = 'hidden' name = "start_date" value = "<%= start_date %>" >
-          <input type="submit" value="Accept">
-        </form>
-        <form action="/requests/reject_request" method="post">
-          <input type = 'hidden' name = "request_id" value = "<%= request.id %>" >
-          <input type="submit" value="Reject">
-        </form>
-
-      </li><br>
-    <% end %>
-  </ul>
-
-
-  <ul id='requests-i-have-received'>
-
-    <h1>Accepted requests</h1>
-    <% if @accepted_requests_received.empty? %>
-        <h3> You have no accepted bookings </h3>
-    <% end %>
-
-    <% @accepted_requests_received.each do |request| %>
-      <% listing = Listing.get(request.listing_id) %>
-      <% user = User.get(request.user_id) %>
-      <li>
-        <%= user.first_name + " " + user.last_name %> will be visiting from
-        <br>
-        Start date:    <%= request.start_date   %>
-        <br>
-        End date:      <%= request.end_date   %>
-        <br>
-      </li><br>
-    <% end %>
-  </ul>
-
-<h2>View your property listings</h2>
-<ul id='user-listings'>
-  <% @user_listings.each do |result| %>
-    <div>
-      <li>
-        Address:          <%= result.street_address %>
-        City:             <%= result.city %>
-        Description:      <%= result.description   %>
-        Price per night:  <%= result.price   %>
-        <%= listing_id = result.id   %>
-    <div>
-    <div>
-      Available dates:
-        <ol>
-          <% @dates = @available_dates.all(listing_id: listing_id) %>
-          <% @dates.each do |show_date| %>
-          <li>
-            Start date: <%= show_date.start_date %>
-            End date: <%= show_date.end_date %>
+        <% if @requests_made.empty? %>
+          <h3 class="content-head is-center"> You currently have no trips planned </h3>
+        <% end %>
+        <% @requests_made.each do |request| %>
+          <% if request.status.to_s.capitalize == 'For_review' %>
+            <% output = 'For review' %>
+          <% else %>
+            <% output = request.status.to_s.capitalize %>
+          <% end %>
+          <% listing = Listing.get(request.listing_id) %>
+          <% user = User.get(request.user_id) %>
+            <li>Request sent to: <%= user.first_name + " " + user.last_name %></li>
+            <li>Location: <%= listing.city %></li>
+            <li>From: <%= request.start_date  %> to <%= request.end_date   %></li>
+            <li>Cost per night: <%= listing.price %></li>
+            <li>Total cost: £<%= ((request.end_date - request.start_date)*listing.price).floor %></li>
+            <li>Status: <%= output %></li>
+            <% if output == "Rejected" %>
+              <form action="/requests/delete_request" method="post">
+                <input type = 'hidden' name = 'request_id' value = "<%= request.id %>" >
+                <input type="submit" value="Delete request">
+              </form>
+            <% else %>
+              <br>
+            <% end %>
+            <br>
           </li>
           <% end %>
-        </ol>
+        </ul>
       </div>
-    </li>
-      <form action="/listings/add_date" method="post">
-        <input type = 'hidden' name = "listing_id" value = "<%= listing_id %>" >
-        <input type="submit" value="Add dates">
-      </form>
-    </li>
 
-  <% end %>
-</ul>
+      <div class="pure-u-2-5" id="pretty-box">
+        <ul id='requests-i-have-received'>
+          <h2 class="content-head is-center">Received requests</h2>
+            <% if @requests_received.empty? %>
+              <h3 class="content-head is-center"> You have no booking requests </h3>
+            <% end %>
+            <% @requests_received.each do |request| %>
+              <% if request.status.to_s.capitalize == 'For_review' %>
+                <% output = 'For review' %>
+              <% else %>
+                <% output = request.status.to_s.capitalize %>
+              <% end %>
+              <% listing = Listing.get(request.listing_id) %>
+              <% user = User.get(request.user_id) %>
+                <li>Request received from: <%= user.first_name + " " + user.last_name %></li>
+                <li>From: <%= request.start_date   %> to <%= request.end_date   %></li>
+                <li>Status: <%= output %></li>
+                <form action="/requests/accept_request" method="post">
+                  <% requester_name = user.first_name %>
+                  <% city = listing.city %>
+                  <% requester_mobile = user.mobile_number %>
+                  <% start_date = request.start_date %>
+                  <input type = 'hidden' name = 'request_id' value = "<%= request.id %>" >
+                  <input type = 'hidden' name = "date_id" value = "<%= request.avdate_id %>" >
+                  <input type = 'hidden' name = "requester_name" value = "<%= requester_name %>" >
+                  <input type = 'hidden' name = "city" value = "<%= city %>" >
+                  <input type = 'hidden' name = "requester_mobile" value = "<%= requester_mobile %>" >
+                  <input type = 'hidden' name = "start_date" value = "<%= start_date %>" >
+                  <input type="submit" class="pure-button" value="Accept">
+                </form>
+                <form action="/requests/reject_request" method="post">
+                  <input type = 'hidden' name = "request_id" value = "<%= request.id %>" >
+                  <input type="submit" class="pure-button" value="Reject">
+                </form>
+              </li>
+              <br>
+            <% end %>
+          </ul>
+        </div>
+
+        <div class="pure-u-2-5" id="pretty-box">
+          <ul id='requests-i-have-received'>
+            <h2 class="content-head is-center">Accepted requests</h2>
+              <% if @accepted_requests_received.empty? %>
+                <h3 class="content-head is-center"> You have no accepted bookings </h3>
+              <% end %>
+              <% @accepted_requests_received.each do |request| %>
+                <% listing = Listing.get(request.listing_id) %>
+                <% user = User.get(request.user_id) %>
+                  <li><%= user.first_name + " " + user.last_name %> is confirmed.</li>
+                  <li>From: <%= request.start_date   %> to <%= request.end_date   %></li>
+              <% end %>
+          </ul>
+        </div>
+
+        <div class="pure-u-2-5" id="pretty-box">
+          <ul id='user-listings'>
+            <h2 class="content-head is-center">Your current listings</h2>
+            <% @user_listings.each do |result| %>
+              <div class="pure-u-1-2">
+                <li><small>List ID:        <%= listing_id = result.id   %></small></li>
+                <li>Address:          <%= result.street_address %></li>
+                <li>Price per night:  <%= result.price   %></li>
+                <li>Availability:
+                  <ol>
+                  <% @dates = @available_dates.all(listing_id: listing_id) %>
+                      <% @dates.each do |show_date| %>
+                      <li><%= show_date.start_date %> to <%= show_date.end_date %> </li>
+                  <% end %>
+                </ol>
+                </li>
+          </div>
+          <form action="/listings/add_date" method="post">
+            <input type = 'hidden' name = "listing_id" value = "<%= listing_id %>" >
+            <input type="submit" class="pure-button" value="Add dates">
+          </form>
+          <% end %>
+        </ul>
+      </div>

@@ -41,7 +41,7 @@ module SessionHelpers
 
   def search_listings(city: "London", listing_id: '1' )
     visit '/listings'
-    click_button 'Search listings'
+    click_link 'Search'
     fill_in :listing_id, with: listing_id
     fill_in :city, with: city
     click_button 'Search'

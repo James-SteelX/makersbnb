@@ -1,26 +1,24 @@
-<head>
-  <title>List Property</title>
-</head>
-
-<h3>Create a property listing</h3>
-
-<form action="/listings" method="post">
-  <label for="street_address">
-    Street Address: <input type="text" name="street_address" required>
-  </label>
-  <br>
-  <label for="city">
-    City: <input type="text" name="city" required>
-  </label>
-  <br>
-  <label for="description">
-    Description: <textarea name="description" cols="40" rows="5" maxlength="150" required>
-    </textarea>
-  </label>
-  <br>
-  <label for="price">
-    Price per night: <input type="text" name="price" required>
-  </label>
-  <br>
-  <input type="submit" value="Create listing">
-</form>
+<div class="content">
+  <h2 class="content-head is-center">Create a property listing</h2>
+  <div class="pure-g">
+      <div class="l-box-lrg pure-u-1 pure-u-md-2-5">
+        <form class="pure-form pure-form-stacked" action="/listings" method="post">
+          <fieldset>
+            <label for="street_address">
+              Street Address: <input type="text" name="street_address" required>
+            </label>
+            <label for="city">
+              City: <input type="text" name="city" required>
+            </label>
+            <label for="description">
+              Description: <textarea name="description" cols="50" rows="5" maxlength="150" required></textarea>
+            </label>
+            <label for="price">
+              Price per night: <input type="text" name="price" required>
+            </label>
+            <button type="submit" class="pure-button" value="Create listing">Create listing</button>
+          </fieldset
+        </form>
+      </div>
+  </div>
+</div>

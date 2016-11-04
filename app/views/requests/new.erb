@@ -1,16 +1,19 @@
-<head>
-  <title>MakersBnB</title>
-</head>
-
-<h3>Enter your desired start and end dates </h3>
-
-<form action="/requests/confirmation" method="post">
-  <label for="start_date">
-    Start date: <input type="date" name="start_date" required>
-  </label>
-  <label for="end_date">
-    End date: <input type="date" name="end_date" required>
-  </label>
-  <input type = 'hidden' name = "listing_id" value = "<%= @listing_id %>" >
-  <input type="submit" value="Make request">
-</form>
+<div class="content">
+  <h2 class="content-head is-center">Enter your desired start and end dates </h3>
+  <div class="pure-g">
+    <div class="l-box-lrg pure-u-1 pure-u-md-2-5">
+      <form class="pure-form pure-form-stacked" action="/requests/confirmation" method="post">
+        <fieldset>
+          <label for="start_date">
+            Start date: <input type="date" name="start_date" required>
+          </label>
+          <label for="end_date">
+            End date: <input type="date" name="end_date" required>
+          </label>
+          <input type = 'hidden' name = "listing_id" value = "<%= @listing_id %>" >
+          <button type="submit" class="pure-button" value="Make request">Make request</button>
+        </fieldset>
+      </form>
+    </div>
+  </div>
+</div>
