@@ -19,10 +19,8 @@ feature 'Search listings' do
     create_listing
     search_listings(listing_id: "")
     expect{enter_dates}.to change(Request, :count).by(1)
-    expect(current_path).to eq '/requests/request_booking'
-    expect(page).to have_content 'Success - your request has been sent to the owner'
     visit '/users/profile'
-    expect(page).to have_content 'Success - your booking has been sent to the owner'
+    expect(page).to have_content 'Your booking requests Request sent to: Terry McGuire Location: London From: 2017-02-14 to 2017-02-16'
   end
 
   scenario 'cannot request a stay if not signed in' do

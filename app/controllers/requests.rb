@@ -75,5 +75,4 @@ class MakersBnB < Sinatra::Base
     redirect('/users/profile')
   end
 
-
 end
