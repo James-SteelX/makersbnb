@@ -54,10 +54,13 @@ class MakersBnB < Sinatra::Base
    date = Availability.all(id: params[:date_id])
    request.update(:status => :accepted)
    date.update(:is_available => false)
-   TextMessage.send(params[:requester_mobile], params[:city], params[:start_date], params[:requester_name])
-   redirect('/users/profile')
-
-  end
+   if params[:requester_mobile].empty?
+    redirect('/users/profile')
+   else
+    TextMessage.send(params[:requester_mobile], params[:city], params[:start_date], params[:requester_name])
+    redirect('/users/profile')
+   end
+ end
 
   post "/requests/reject_request" do
     request = Request.all(id: params[:request_id])
