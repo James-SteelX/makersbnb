@@ -32,7 +32,7 @@ A browser-based application intended as a community for property hosts and trave
 
 Congratulations! You're now part of the Makersbnb community, the home screen is pretty straightforward, but let's quickly run through what everything does:
 
-![homepage][http://imgur.com/a/Yds1T]
+![homepage](http://imgur.com/a/Yds1T)
 
 ### Navigating the site
 
@@ -90,7 +90,7 @@ Liam Taylor
 
 ## Notes on the build
 
-Pretty standard; Ruby backend, html on the front, and CSS provided largely by Pure [pure][http://purecss.io/] (with some additional tailoring by Jen)
+Pretty standard; Ruby backend, html on the front, and CSS provided largely by Pure [http://purecss.io/] (with some additional tailoring by Jen)
 
 
 ## Pipeline
@@ -117,20 +117,20 @@ The app was created to address the following high level specification:
 ### Nice-to-haves
 
 * Users should receive an email whenever one of the following happens:
- ** They sign up
- ** They create a space
- ** They update a space
- ** A user requests to book their space
- ** They confirm a request
- ** They request to book a space
- ** Their request to book a space is confirmed
- ** Their request to book a space is denied
+  * They sign up
+  * They create a space
+  * They update a space
+  * A user requests to book their space
+  * They confirm a request
+  * They request to book a space
+  * Their request to book a space is confirmed
+  * Their request to book a space is denied
 * Users should receive a text message to a provided number whenever one of the following happens:
- ** A user requests to book their space
- ** Their request to book a space is confirmed
- ** Their request to book a space is denied
- ** A ‘chat’ functionality once a space has been booked, allowing users whose     space-booking request has been confirmed to chat with the user that owns that space
- ** Basic payment implementation though Stripe.
+  * A user requests to book their space
+  * Their request to book a space is confirmed
+  * Their request to book a space is denied
+  * A ‘chat’ functionality once a space has been booked, allowing users whose     space-booking request has been confirmed to chat with the user that owns that space
+  * Basic payment implementation though Stripe.
 
 ## Supporting user stories
 
