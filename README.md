@@ -90,7 +90,7 @@ Built with love by:
 
 ## Notes on the build
 
-Pretty standard; Ruby backend, html on the front, and CSS provided largely by Pure (with some additional tailoring by Jen) [Pure](http://purecss.io/) 
+Pretty standard; Ruby backend, html on the front, and CSS provided largely by [Pure](http://purecss.io/) (with some additional tailoring by Jen) 
 
 
 ## Pipeline
