@@ -77,16 +77,16 @@ In addition to approving requests, the profile page has some more important info
  * Accepted bookings: any requests you've accepted and are still upcoming are visible here
  * Current listings: All of the listings attached to your profile, you can also see the dates they're available and add to these
 
-                      -------------------------------------
+===============================================================================
 
 # Tech stuff
 
 Built with love by:
 
-Glenn Bemont
-James Steel
-Jennifer Hanratty
-Liam Taylor
+ - Glenn Bemont
+ - James Steel
+ - Jennifer Hanratty
+ - Liam Taylor
 
 ## Notes on the build
 
