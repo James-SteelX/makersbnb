@@ -32,7 +32,7 @@ A browser-based application intended as a community for property hosts and trave
 
 Congratulations! You're now part of the Makersbnb community, the home screen is pretty straightforward, but let's quickly run through what everything does:
 
-![homepage](http://imgur.com/a/Yds1T)
+[Imgur](http://i.imgur.com/RYFZEcQ.png)
 
 ### Navigating the site
 
