@@ -6,7 +6,7 @@ A browser-based application intended as a community for property hosts and trave
 
 *** In no way inspired by or related to another site ending in bnb ... ***
 
-# Setup
+## Setup
 
 1. Navigate to the folder where you want to store the app, and run these command line requests:
 
@@ -36,7 +36,7 @@ Congratulations! You're now part of the Makersbnb community, the home screen is 
 
 ### Navigating the site
 
-The navigation bar (at the top) is the same on every screen, and let's you quickly access the site's main features, namely searching, listing a proper, viewing your profile, and signing out. In addition, clicking the icon in the top left will take you back to this home screen.
+The navigation bar (at the top) is the same on every screen, and lets you quickly access the site's main features, namely searching, listing a property, viewing your profile, and signing out. In addition, clicking the icon in the top left will take you back to this home screen.
 
 The two buttons in the main body of the site let you:
 
@@ -49,7 +49,7 @@ Searching can be done using a unique listing id for each property or a specific 
 
 ### Requesting a site
 
-For each listing, you'll see  the dates for which it's available. If you've specified dates in tyour search, you'll only see options within those dates.
+For each listing, you'll see  the dates for which it's available. If you've specified dates in your search, you'll only see options within those dates.
 
 If you see some thing you like, you can request to stay during the dates specified by clicking 'Make booking Request'. This will inform the host that you'd like to stay there, who will get back to you with a response.
 
@@ -90,8 +90,7 @@ Built with love by:
 
 ## Notes on the build
 
-Pretty standard; Ruby backend, html on the front, and CSS provided largely by [Pure](http://purecss.io/) (with some additional tailoring by Jen) 
-
+Pretty standard; Ruby backend, html on the front, and CSS provided largely by [Pure](http://purecss.io/) (with some additional tailoring by Jen)
 
 ## Pipeline
 
